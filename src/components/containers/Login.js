@@ -28,16 +28,16 @@ export default class Login extends Component {
     })
     .then(json => {
       if (json !== undefined) {
-        debugger
         window.sessionStorage.setItem('jwt', json['jwt'])
+        debugger
 
         // TODO: Set the user attributes in Redux instead
         window.sessionStorage.setItem('user', json['user'])
 
         // redirect to '/'
-        window.location.href = 'http://localhost:3001/'
+        // window.location.href = 'http://localhost:3001/'
       } else {
-        alert('CRITICAL LOGIN FAILURE!')
+        alert('Invalid Login Credentials')
       }
     })
   }
