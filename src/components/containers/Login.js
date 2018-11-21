@@ -28,10 +28,11 @@ export default class Login extends Component {
     })
     .then(json => {
       if (json !== undefined) {
-        window.localStorage.setItem('jwt', json['jwt'])
+        debugger
+        window.sessionStorage.setItem('jwt', json['jwt'])
 
         // TODO: Set the user attributes in Redux instead
-        window.localStorage.setItem('currentUser', json['user'])
+        window.sessionStorage.setItem('user', json['user'])
 
         // redirect to '/'
         window.location.href = 'http://localhost:3001/'

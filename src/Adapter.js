@@ -7,7 +7,7 @@ export default class Adapter {
     return fetch(`${this.BACKEND_URL}/${endpoint}`, {
       method: "GET",
       headers: {
-        'Authorization': window.localStorage.getItem('jwt'),
+        'Authorization': window.sessionStorage.getItem('jwt'),
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }
