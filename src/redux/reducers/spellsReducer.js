@@ -1,13 +1,15 @@
 export default function spellsReducer (
   state = {
-    selectedSpell: []
+    spells: [],
+    filteredSpells: [],
+    spellSearch: ''
   },
   action
 ) {
   switch (action.type) {
     case 'SELECT_SPELL':
       return {...state,
-        selectedSpell: state.spells.select(spell => spell.id === action.spellId)
+        filteredSpells: state.spells.filter(spell => spell.name.includes(state.spellSearch))
       };
     default:
       return state

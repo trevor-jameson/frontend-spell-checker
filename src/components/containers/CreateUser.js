@@ -10,7 +10,10 @@ export default class Login extends Component {
     // State of password and username vars should be limited to the login form
     this.state = {
     username: '',
-    password: ''
+    firstname: '',
+    lastname: '',
+    password: '',
+    pic: ''
     }
   }
 
@@ -20,10 +23,13 @@ export default class Login extends Component {
 
   submitForm = (event) => {
     event.preventDefault()
-    adapter.loginUser({
+    adapter.createUser({
       user: {
         username: this.state.username,
-        password: this.state.password
+        firstname: this.state.firstname,
+        lastname: this.statelastname,
+        password: this.state.password,
+        pic: this.state.pic
       }
     })
     .then(json => {
@@ -34,26 +40,42 @@ export default class Login extends Component {
         // TODO: Set the user attributes in Redux instead
         window.sessionStorage.setItem('user', JSON.stringify(json['user']))
 
-        // redirect to '/'
+        // redirect to '/spells'
         window.location.href = 'http://localhost:3000/spells'
       } else {
-        alert('Invalid Login Credentials')
+        alert('Invalid User Credentials')
       }
     })
   }
 
   render() {
-    // TODO: If user has authenticated JWT, redirect to spells page
     return(
-      <div id="login-page">
+      <div id="create-user-page">
+
         <Form>
-          <h2> Login </h2>
+
+          <h2> Create User </h2>
           <Form.Field>
             <label>Username</label>
             <input
             placeholder='username'
             onChange={this.setChange}/>
           </Form.Field>
+
+          <Form.Field>
+            <label>First Name</label>
+            <input
+            placeholder='firstname'
+            onChange={this.setChange}/>
+          </Form.Field>
+
+          <Form.Field>
+            <label>Last Name</label>
+            <input
+            placeholder='lastname'
+            onChange={this.setChange}/>
+          </Form.Field>
+
           <Form.Field>
             <label>Password</label>
             <input
@@ -61,13 +83,23 @@ export default class Login extends Component {
             type='password'
             onChange={this.setChange}/>
           </Form.Field>
+
+          <Form.Field>
+            <label>Link to Profile Picture</label>
+            <input
+            placeholder='pic'
+            onChange={this.setChange}/>
+          </Form.Field>
+
           <Button
           type='submit'
           onClick={this.submitForm}>
           Submit</Button>
+
         </Form>
-        <div id="create-user-option">
-          <Link to="/create-user">New to Spell Check? Create a new profile and get playing!</Link>
+
+        <div id="login-user-option">
+          <Link to="/login">Already have a profile? Head back to the login page!</Link>
         </div>
       </div>
     )
