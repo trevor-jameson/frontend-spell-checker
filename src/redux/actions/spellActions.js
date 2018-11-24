@@ -1,13 +1,18 @@
 import { adapter } from '../../Adapter'
+import { FETCHED_SPELLS, CHANGE_SEARCH_TEXT, LOADING_SPELLS } from '../actionTypes'
 
 // ACTION CREATORS
-function loadingSpells() {
-  // My first lil baby action
-  return { type: "LOADING_SPELLS" }
+
+function changeSearchText(searchText) {
+  return { type: CHANGE_SEARCH_TEXT, searchText }
 }
 
 function fetchedSpells(spells) {
-  return { type: 'FETCHED_SPELLS', spells: spells}
+  return { type: FETCHED_SPELLS, spells: spells }
+}
+
+function loadingSpells() {
+  return { type: LOADING_SPELLS }
 }
 
 // Action Creators are only allowed to return {}
@@ -23,4 +28,4 @@ function fetchingSpells(){
 }
 // The goal is to create an action, that when complete, dispatches another action async
 
-export { fetchingSpells }
+export { fetchingSpells, changeSearchText, fetchedSpells }

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
-import spellsReducer from './spellsReducer'
+import { spellsReducer, searchTextReducer, loadingReducer } from './spellsReducer'
 
-export default combineReducers({
-  spellsReducer,
+export const rootReducer = combineReducers({
+  spells: spellsReducer,
+  searchText: searchTextReducer,
+  isLoading: loadingReducer
 })

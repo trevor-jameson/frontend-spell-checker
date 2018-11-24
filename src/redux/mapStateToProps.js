@@ -1,9 +1,7 @@
 const mapSpellsToProps = state => {
   return {
-    // Searching spell name and description for matches
-    spells: state.spells.filter(s =>
-        s.name.toLowerCase().includes(state.searchText.toLowerCase()) ||
-        s.desc.toLowerCase().includes(state.searchText.toLowerCase())
+    spells: state.spells.filter(
+      spell => spell.name.toLowerCase().includes(state.searchText.toLowerCase())
     ),
     loading: state.loading
   }
@@ -11,8 +9,8 @@ const mapSpellsToProps = state => {
 
 const mapSpellToProps = (state, ownProps) => {
   return {
-    matchedSpell: state.spells.find(spell =>
-      spell.id === ownProps.match.params.spellId
+    spell: state.spells.find(
+      spell => spell.id === ownProps.match.params.spellId
     )
   }
 }

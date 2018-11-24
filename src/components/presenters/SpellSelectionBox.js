@@ -1,14 +1,29 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component } from 'react'
 import SpellSearchBar from '../containers/SpellSearchBar'
 import MatchedSpells from './MatchedSpells'
+import { fetchingSpells } from '../../redux/actions/spellActions'
+import { connect } from 'react-redux'
 
-const SpellSelectionBox = () => {
-  return (
-    <>
-      <SpellSearchBar/>
-      <MatchedSpells/>
-    </>
-  )
+class SpellSelectionBox extends Component {
+
+componentDidMount() {
+  this.props.fetchingSpells()
 }
 
-export default SpellSelectionBox
+  render() {
+    return (
+      <>
+        <SpellSearchBar />
+        <MatchedSpells />
+      </>
+    )
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchingSpells: () => {dispatch(fetchingSpells())}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SpellSelectionBox)
