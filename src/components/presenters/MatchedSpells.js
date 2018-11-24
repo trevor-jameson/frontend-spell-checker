@@ -7,8 +7,8 @@ import { mapSpellsToProps } from '../../redux/mapStateToProps'
 
 // Import Semantic-UI
 const MatchedSpells = props => {
-  console.log(props.spells)
   return props.isLoading ? <div>Spells Loading</div> :
+    !props.isSearching ? <div>Type in the search bar to see spells</div> :
   <div className="ui container">
     {props.spells.map(spell => <SpellCard
       key={spell.id}

@@ -3,7 +3,8 @@ const mapSpellsToProps = state => {
     spells: state.spells.filter(
       spell => spell.name.toLowerCase().includes(state.searchText.toLowerCase())
     ),
-    loading: state.loading
+    isLoading: state.isLoading,
+    isSearching: state.searchText.length > 0
   }
 }
 
