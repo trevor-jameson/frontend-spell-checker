@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import { adapter } from '../../Adapter'
-import { Button, Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import './Login.css'
+import { Button, Form, Grid, Header, Image } from 'semantic-ui-react'
 
 export default class Login extends Component {
   constructor() {
@@ -46,29 +47,35 @@ export default class Login extends Component {
     // TODO: If user has authenticated JWT, redirect to spells page
     return(
       <div id="login-page">
-        <Form>
-          <h2> Login </h2>
-          <Form.Field>
-            <label>Username</label>
-            <input
-            placeholder='username'
-            onChange={this.setChange}/>
-          </Form.Field>
-          <Form.Field>
-            <label>Password</label>
-            <input
-            placeholder='password'
-            type='password'
-            onChange={this.setChange}/>
-          </Form.Field>
-          <Button
-          type='submit'
-          onClick={this.submitForm}>
-          Submit</Button>
-        </Form>
-        <div id="create-user-option">
-          <Link to="/create-user">New to Spell Check? Create a new profile and get playing!</Link>
-        </div>
+        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+          <Grid.Column style={{ maxWidth: 550 }}>
+            <Header as='h2' color='#8B0000' textAlign='center'>
+              Login to your account
+              </Header>
+                <Form size='large'>
+                  <Form.Field>
+                    <label>Username </label>
+                    <input
+                    placeholder='username'
+                    onChange={this.setChange}/>
+                  </Form.Field>
+                  <Form.Field>
+                    <label>Password </label>
+                    <input
+                    placeholder='password'
+                    type='password'
+                    onChange={this.setChange}/>
+                  </Form.Field>
+                  <Button
+                  type='submit'
+                  onClick={this.submitForm}>
+                  Submit</Button>
+                </Form>
+                <div id="create-user-option">
+                  <Link to="/create-user">New to Spell Check? Create a new profile and get playing!</Link>
+                </div>
+          </Grid.Column>
+        </Grid>
       </div>
     )
   }
