@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { Search } from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
 import { changeSearchText } from '../../redux/actions/spellActions'
 import { mapSearchTextToProps } from '../../redux/mapStateToProps'
 
 const SpellSearchBar = (props) => (
   <div className="ui container">
     <div className="ui very large fluid input">
-      <input
+      <Input
         type="text"
         placeholder="Search"
         value={props.searchText}

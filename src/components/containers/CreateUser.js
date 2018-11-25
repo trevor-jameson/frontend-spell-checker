@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { adapter } from '../../Adapter'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid, Column, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default class Login extends Component {
@@ -51,56 +51,56 @@ export default class Login extends Component {
   render() {
     return(
       <div id="create-user-page">
+      <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+        <Grid.Column style={{ maxWidth: 550 }}>
+          <Header as='h2' color='#8B0000' textAlign='center'>
+            Create your account
+          </Header>
+          <Form>
+            <Form.Field>
+              <label>Username</label>
+              <input
+              onChange={this.setChange}/>
+            </Form.Field>
 
-        <Form>
+            <Form.Field>
+              <label>First Name</label>
+              <input
+              onChange={this.setChange}/>
+            </Form.Field>
 
-          <h2> Create User </h2>
-          <Form.Field>
-            <label>Username</label>
-            <input
-            placeholder='username'
-            onChange={this.setChange}/>
-          </Form.Field>
+            <Form.Field>
+              <label>Last Name</label>
+              <input
+              onChange={this.setChange}/>
+            </Form.Field>
 
-          <Form.Field>
-            <label>First Name</label>
-            <input
-            placeholder='firstname'
-            onChange={this.setChange}/>
-          </Form.Field>
+            <Form.Field>
+              <label>Password</label>
+              <input
+              type='password'
+              onChange={this.setChange}/>
+            </Form.Field>
 
-          <Form.Field>
-            <label>Last Name</label>
-            <input
-            placeholder='lastname'
-            onChange={this.setChange}/>
-          </Form.Field>
+            <Form.Field>
+              <label>Profile Picture</label>
+              <input
+              placeholder="Link"
+              onChange={this.setChange}/>
+            </Form.Field>
 
-          <Form.Field>
-            <label>Password</label>
-            <input
-            placeholder='password'
-            type='password'
-            onChange={this.setChange}/>
-          </Form.Field>
+            <Button
+            type='submit'
+            onClick={this.submitForm}>
+            Submit</Button>
+          </Form>
 
-          <Form.Field>
-            <label>Link to Profile Picture</label>
-            <input
-            placeholder='pic'
-            onChange={this.setChange}/>
-          </Form.Field>
-
-          <Button
-          type='submit'
-          onClick={this.submitForm}>
-          Submit</Button>
-
-        </Form>
-
-        <div id="login-user-option">
-          <Link to="/login">Already have a profile? Head back to the login page!</Link>
-        </div>
+          <div id="login-user-option">
+          <br/>
+            <Link to="/login">Already have a profile? Head back to the login page!</Link>
+          </div>
+          </Grid.Column>
+        </Grid>
       </div>
     )
   }

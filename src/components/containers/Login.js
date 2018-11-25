@@ -72,6 +72,7 @@ export default class Login extends Component {
                   Submit</Button>
                 </Form>
                 <div id="create-user-option">
+                <br/>
                   <Link to="/create-user">New to Spell Check? Create a new profile and get playing!</Link>
                 </div>
           </Grid.Column>
