@@ -19,6 +19,11 @@ class App extends Component {
       <Route path="/login" component={Login}/>
       <Route path="/create-user" component={CreateUser}/>
       <Route path="/spells" component={SpellSelectionBox}/>
+      
+      {/* These components have not been defined */}
+      <Route path="/characters" />
+      <Route path="/sessions" />
+      <Route path="/logout" />
       </>
     );
   }

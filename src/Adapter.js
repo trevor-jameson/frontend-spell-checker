@@ -36,7 +36,8 @@ export default class Adapter {
     }
 
     logoutUser() {
-      // The backend has no responsibility for logging out users
+      // The backend has no responsibility for logging out users while
+      // using a JWT schema
       window.sessionStorage.removeItem('jwt')
     }
 

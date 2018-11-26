@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import SpellSearchBar from '../containers/SpellSearchBar'
 import MatchedSpells from './MatchedSpells'
+import NavBar from './NavBar'
 import { fetchingSpells } from '../../redux/actions/spellActions'
 import { connect } from 'react-redux'
 
@@ -13,6 +14,7 @@ componentDidMount() {
   render() {
     return (
       <>
+        <NavBar />
         <SpellSearchBar />
         <MatchedSpells />
       </>

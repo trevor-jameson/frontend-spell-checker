@@ -1,42 +1,35 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { adapter } from '../../Adapter'
-import { Button, Form, Grid, Column, Header } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
-import './CreateUser.css'
+import { Button, Form, Grid, Column, Header, Modal } from 'semantic-ui-react'
+import './CreateChar.css'
 
-export default class Login extends Component {
+export default class CreateChar extends Component {
   constructor() {
     super()
-
-    // State of password and username vars should be limited to the login form
     this.state = {
-    username: '',
-    firstname: '',
-    lastname: '',
-    password: '',
-    password_conf: '',
+    name: '',
+    class: '',
+    level: '',
+    abilities: {},
     pic: ''
     }
   }
 
   setChange = event => {
     this.setState({[event.target.placeholder]: event.target.value})
-    this.checkPassword()
   }
 
 
   submitForm = (event) => {
     event.preventDefault()
-    if (this.state.password_conf !== this.state.password) {
-       console.log('Your passwords must match')
-       return
-    }
-    adapter.createUser({
-      user: {
-        username: this.state.username,
-        firstname: this.state.firstname,
-        lastname: this.statelastname,
-        password: this.state.password,
+
+    // Method not yet defined
+    adapter.createChar({
+      char: {
+        name: this.state.name,
+        class: this.state.class,
+        level: this.state.level,
+        abilities: this.state.abilities,
         pic: this.state.pic
       }
     })
@@ -49,10 +42,10 @@ export default class Login extends Component {
         window.sessionStorage.setItem('user', JSON.stringify(json['user']))
 
         // redirect to '/spells'
-        window.location.href = 'http://localhost:3000/spells'
+        window.location.href = 'http://localhost:3000/characters'
       } else {
         // TODO: How to handle error messages from backend?
-        alert('Invalid User Credentials')
+        alert('All fields must be filled')
       }
     })
     // End of SubmitForm
@@ -60,33 +53,33 @@ export default class Login extends Component {
 
   render() {
     return(
-      <div id="create-user-page">
+      <div id="create-char-page">
       <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 550 }}>
           <Header as='h2' textAlign='center'>
-            Create your account
+            Create your new character
           </Header>
           <Form>
             <Form.Field>
-              <label>Username</label>
+              <label>Name</label>
               <input
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
-              <label>First Name</label>
+              <label>Class</label>
               <input
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
-              <label>Last Name</label>
+              <label>Level</label>
               <input
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
-              <label>Password</label>
+              <label>Ability Scores</label>
               <input
               type='password'
               onChange={this.setChange}/>
@@ -102,7 +95,7 @@ export default class Login extends Component {
             <Form.Field>
               <label>Profile Picture</label>
               <input
-              placeholder="Link"
+              placeholder="Optional Link"
               onChange={this.setChange}/>
             </Form.Field>
 
@@ -112,7 +105,7 @@ export default class Login extends Component {
             Submit</Button>
           </Form>
 
-          <div id="login-user-option">
+          <div id="create-char-option">
           <br/>
             <Link to="/login">Already have a profile? Head back to the login page!</Link>
           </div>
