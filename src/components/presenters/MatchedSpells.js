@@ -1,7 +1,7 @@
 // Add MatchedSpells as dumb, stateless component, with grid for displaying spell cards
 
 import React from 'react'
-import { Dimmer, Loader, Segment } from 'semantic-ui-react'
+import { Dimmer, Loader, Segment, Card } from 'semantic-ui-react'
 import SpellCard from './SpellCard'
 import { connect } from 'react-redux'
 
@@ -20,12 +20,12 @@ const loadingSpells = (
 const MatchedSpells = props => {
   return props.isLoading ? <div>{loadingSpells}</div> :
     !props.isSearching ? <div>Type in the search bar to see spells</div> :
-  <div className="ui container">
+  <Card.Group centered itemsPerRow={2}>
     {props.spells.map(spell => <SpellCard
       key={spell.id}
       spell={spell}
     />)}
-  </div>
+  </Card.Group>
 }
 
 
