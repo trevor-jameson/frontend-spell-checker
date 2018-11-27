@@ -10,7 +10,6 @@ class NavBar extends Component {
     const codeFreeze = Date.parse('December 5, 2018 14:00:00')
     const remainingTime = codeFreeze - Date.parse(new Date())
     let remainingHours = Math.round(remainingTime / 1000 / 60 / 60)
-    console.log(remainingHours)
     return remainingHours
   }
 
@@ -76,7 +75,7 @@ class NavBar extends Component {
         <Header icon='cog' content="Logout of Spell Check?" />
         <Modal.Content>
         <p>
-        Are you sure you want to log out of SpellCheck? Is something wrong with you?!
+          Are you sure you want to log out of SpellCheck? Is something wrong with you?!
         </p>
         </Modal.Content>
         <Modal.Actions>
