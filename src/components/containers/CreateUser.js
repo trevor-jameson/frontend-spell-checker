@@ -20,7 +20,8 @@ export default class Login extends Component {
   }
 
   setChange = event => {
-    this.setState({[event.target.placeholder]: event.target.value})
+    debugger
+    this.setState({[event.target.name]: event.target.value})
     this.checkPassword()
   }
 
@@ -49,7 +50,7 @@ export default class Login extends Component {
         window.sessionStorage.setItem('user', JSON.stringify(json['user']))
 
         // redirect to '/spells'
-        window.location.href = 'http://localhost:3000/spells'
+        window.location.href = 'http://localhost:3000/homepage'
       } else {
         // TODO: How to handle error messages from backend?
         alert('Invalid User Credentials')
@@ -62,32 +63,36 @@ export default class Login extends Component {
     return(
       <div id="create-user-page">
       <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
-        <Grid.Column style={{ maxWidth: 550 }}>
-          <Header as='h2' textAlign='center'>
+        <Grid.Column style={{ maxWidth: 400 }}>
+          <Header as='h2' textAlign='center' style={{color: 'yellow'}}>
             Create your account
           </Header>
           <Form>
             <Form.Field>
               <label>Username</label>
               <input
+              name='username'
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
               <label>First Name</label>
               <input
+              name='firstname'
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
               <label>Last Name</label>
               <input
+              name='lastname'
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
               <label>Password</label>
               <input
+              name='password'
               type='password'
               onChange={this.setChange}/>
             </Form.Field>
@@ -95,14 +100,15 @@ export default class Login extends Component {
             <Form.Field>
               <label>Password Confirmation</label>
               <input
-              type='password_conf'
+              name='password_conf'
               onChange={this.setChange}/>
             </Form.Field>
 
             <Form.Field>
               <label>Profile Picture</label>
               <input
-              placeholder="Link"
+              name='pic'
+              placeholder="link"
               onChange={this.setChange}/>
             </Form.Field>
 

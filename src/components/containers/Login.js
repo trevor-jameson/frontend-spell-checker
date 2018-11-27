@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { adapter } from '../../Adapter'
 import { Link } from 'react-router-dom'
 import './Login.css'
-import { Button, Form, Grid, Header, Image } from 'semantic-ui-react'
+import { Button, Form, Grid, Header } from 'semantic-ui-react'
 
 export default class Login extends Component {
   constructor() {
@@ -36,7 +36,7 @@ export default class Login extends Component {
         window.sessionStorage.setItem('user', JSON.stringify(json['user']))
 
         // redirect to '/'
-        window.location.href = 'http://localhost:3000/spells'
+        window.location.href = 'http://localhost:3000/homepage'
       } else {
         alert('Invalid Login Credentials')
       }

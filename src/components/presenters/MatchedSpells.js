@@ -4,10 +4,10 @@ import React from 'react'
 import { Dimmer, Loader, Segment } from 'semantic-ui-react'
 import SpellCard from './SpellCard'
 import { connect } from 'react-redux'
+
 import { mapSpellsToProps } from '../../redux/mapStateToProps'
 import './MatchedSpells.css'
 
-// Rendering incorrectly
 const loadingSpells = (
   <Segment className={'loadEvent'}>
     <Dimmer active>
