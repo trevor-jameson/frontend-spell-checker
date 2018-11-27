@@ -15,7 +15,7 @@ const NoMatch = () => {
       >
         <Message
           header="Where do you think you're going?"
-          content="404: Error - Page not found"
+          content="404 Error - Page not found"
           compact={true}
           warning={true}
         />

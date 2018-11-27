@@ -3,13 +3,12 @@ import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 
 import NavBar from '../presenters/NavBar'
-import SpellSearchBar from './SpellSearchBar'
-import MatchedSpells from '../presenters/NoMatch'
+import CreateChar from './CreateChar'
 
 class CharacterSelectionBox extends Component {
 
   componentDidMount() {
-    this.props.fetchingSpells()
+    // this.props.fetchingChars()
   }
 
   render() {
@@ -20,9 +19,8 @@ class CharacterSelectionBox extends Component {
             <Grid.Column>
               <NavBar />
             </Grid.Column>
-            <Grid.Column floated={'right'} width={12}>
-              <SpellSearchBar />
-              <MatchedSpells />
+            <Grid.Column floated={'right'} width={16}>
+              <CreateChar />
             </Grid.Column>
           </Grid.Row>
         </Grid>

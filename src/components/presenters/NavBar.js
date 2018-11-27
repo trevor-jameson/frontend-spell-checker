@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/SpellCheckLogo.png'
 
 class NavBar extends Component {
-
-  // Calculates the hours remaining until the code freeze
+  // TODO: Refactor Menu component to use SideBar instead
+  // Calculates the hours remaining until the Mod 5 code freeze
    codeFreeze = () => {
     const codeFreeze = Date.parse('December 5, 2018 14:00:00')
     const remainingTime = codeFreeze - Date.parse(new Date())
-    let remainingHours = Math.round(remainingTime / 1000 / 60 / 60)
-    return remainingHours
+    if (remainingTime <= 0) {
+      return <iframe src="https://giphy.com/embed/T08JhumnpKAI8" width="180" height="150" ></iframe>
+    }
+      let remainingHours = Math.round(remainingTime / 1000 / 60 / 60)
+      return <p>{remainingHours} Hours until code freeze</p>
   }
 
     render() {
@@ -92,7 +95,7 @@ class NavBar extends Component {
         <Menu.Item>
         <br/>
         <br/>
-          {this.codeFreeze()} Hours Until Code Freeze
+          {this.codeFreeze()}
         </Menu.Item>
 
         </Menu>
