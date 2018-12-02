@@ -1,7 +1,8 @@
 // Login user, create user, and logout user do not require JWTs.
 export default class Adapter {
-  constructor(domain) {
-    this.BACKEND_URL = domain
+  constructor(backDomain, frontDomain) {
+    this.BACKEND_URL = backDomain
+    this.FRONTEND_URL = frontDomain
   }
 
   // Generic get fetch for use with any endpoint
@@ -39,6 +40,7 @@ export default class Adapter {
       // The backend has no responsibility for logging out users while
       // using a JWT schema
       window.sessionStorage.removeItem('jwt')
+      window.location.href = ''
     }
 
     createUser(body) {
@@ -60,5 +62,5 @@ export default class Adapter {
       }
 }
 
-// Set the backend's current url here
-export const adapter = new Adapter('http://localhost:3001')
+// Set the (backend's, frontend's) current url here
+export const adapter = new Adapter('http://localhost:3001', 'http://localhost:3000')

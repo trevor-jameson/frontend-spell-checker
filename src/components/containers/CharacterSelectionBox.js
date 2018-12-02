@@ -18,14 +18,11 @@ class CharacterSelectionBox extends Component {
       <>
         <Grid columns={2}>
           <Grid.Row>
-            <Grid.Column>
-              <NavBar />
-            </Grid.Column>
+            <NavBar />
+          </Grid.Row>
             <Grid.Column/>
             <Grid.Column floated={'right'} width={10}>
-
             </Grid.Column>
-          </Grid.Row>
         </Grid>
       </>
     )

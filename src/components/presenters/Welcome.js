@@ -6,6 +6,7 @@ import './Welcome.css'
 const Welcome = () => {
   return (
     <div id="welcome-screen">
+    <Grid.Column/>
       <Grid.Column width={5}>
         <div id="welcome-selector-box">
           <Segment padded inverted centered>
@@ -15,21 +16,22 @@ const Welcome = () => {
             id='app-title'/>
 
             <Button primary fluid>
-              <Link to="login">Login</Link>
+              <Link to="/login">Login</Link>
             </Button>
 
             <Divider horizontal >Or</Divider>
 
-            <Button primary fluid>
-              <Link to="/create-user">Create New Account</Link>
-            </Button>
+            <Link to="/create-user">
+              <Button primary fluid>
+                Create New Account
+              </Button>
+            </Link>
 
             </Segment>
             </div>
           </Grid.Column>
+          <Grid.Column/>
     </div>
-
-
   )
 }
 

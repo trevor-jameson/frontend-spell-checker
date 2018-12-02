@@ -4,7 +4,7 @@ import { Button, Form, Grid, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import './CreateUser.css'
 
-export default class Login extends Component {
+export default class CreateUser extends Component {
   constructor() {
     super()
 
@@ -48,7 +48,7 @@ export default class Login extends Component {
         window.sessionStorage.setItem('user', JSON.stringify(json['user']))
 
         // redirect to '/spells'
-        window.location.href = 'http://localhost:3000/homepage'
+        window.location.href = 'http://localhost:3000/spells'
       } else {
         // TODO: How to handle error messages from backend?
         alert('Invalid User Credentials')
