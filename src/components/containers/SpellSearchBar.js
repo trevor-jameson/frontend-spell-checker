@@ -18,5 +18,4 @@ const SpellSearchBar = (props) => (
   </div>
 );
 
-
 export default connect(mapSearchTextToProps, {onChange: changeSearchText})(SpellSearchBar)

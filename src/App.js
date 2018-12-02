@@ -1,5 +1,6 @@
 // External Framework Components
 import React, { Component, Fragment } from 'react';
+import { Grid } from 'semantic-ui-react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -19,15 +20,20 @@ import NoMatch from './components/presenters/NoMatch'
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Welcome}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/create-user" component={CreateUser}/>
-        <Route path="/homepage" component={HomePage} />
-        <Route path="/spells" component={SpellSelectionBox} />
-        <Route path="/characters" component={CharacterSelectionBox} />
-        <Route component={NoMatch} />
-      </Switch>
+      <Grid>
+
+        <Grid.Row>
+          <Switch>
+            <Route exact path="/" component={Welcome}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/create-user" component={CreateUser}/>
+            <Route path="/homepage" component={HomePage} />
+            <Route path="/spells" component={SpellSelectionBox} />
+            <Route path="/characters" component={CharacterSelectionBox} />
+            <Route component={NoMatch} />
+          </Switch>
+        </Grid.Row>
+      </Grid>
     );
   }
 }

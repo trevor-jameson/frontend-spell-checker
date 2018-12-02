@@ -19,7 +19,7 @@ export const searchTextReducer = (prevState = '', action) => {
   }
 }
 
-export const loadingReducer = (prevState = false, action) => {
+export const loadingSpellsReducer = (prevState = false, action) => {
   switch (action.type) {
     case LOADING_SPELLS:
       return true

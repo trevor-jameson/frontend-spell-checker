@@ -1,3 +1,18 @@
+body {
+  background: #ffd89b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #19547b, #ffd89b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+#app-title {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-style: wavy;
+  font-family: 'Stalemate', 'cursive';
+  font-size: 6em;
+}
+
 #welcome-screen {
   background: url('../../images/tree_of_life_by_jjcanvas_dc6zv1z-pre.jpg') no-repeat center center fixed;
   /* adjusts size to CSS3 specs for each major browser */
@@ -8,11 +23,15 @@
   height: 650px;
 }
 
-.welcome-msg {
-  color: #009900;
-  font-family: garamond;
+#welcome-selector-box {
+  opacity: 0.80;
+  margin-top: 20%;
 }
-#welcome-screen a:link, #welcome-screen a:visited {
-  color: #009900;
-  font-size: 5em;
+
+#welcome-selector-box a:link, #welcome-selector-box a:visited, #welcome-selector-box > a:active {
+  color: white;
+}
+
+#welcome-selector-box .divider {
+  color: white;
 }

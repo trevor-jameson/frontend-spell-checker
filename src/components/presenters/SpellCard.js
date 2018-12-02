@@ -1,17 +1,27 @@
 import React from 'react'
 import { Card, Header } from 'semantic-ui-react'
+import Truncate from 'react-truncate'
 
 const SpellCard = props => {
   debugger
   return (
     <Card raised>
-      <Header>
-      {props.spell.name}
-      </Header>
-        <p>{props.spell.desc}</p>
-        <p>Casting Time: {props.spell.castingtime}</p>
-        <p>Range: {props.spell.range}</p>
-        <p>Classes: {props.spell.classes}</p>
+      <Card.Header
+      as='h3'
+      centered
+      content={props.spell.name}
+      />
+      <Card.Content>
+        Range: {props.spell.range}
+        <br/>Classes: {props.spell.classes}
+        <br/>Casting Time: {props.spell.castingtime}
+        <Truncate
+          lines={4}
+          ellipses={'...'}
+        >
+          <br/>Description: {props.spell.desc}
+        </Truncate>
+      </Card.Content>
     </Card>
   )
 }

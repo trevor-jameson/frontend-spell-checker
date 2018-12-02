@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { adapter } from '../../Adapter'
-import { Button, Form, Grid, Column, Header } from 'semantic-ui-react'
+import { Button, Form, Grid, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import './CreateUser.css'
 
@@ -20,16 +20,14 @@ export default class Login extends Component {
   }
 
   setChange = event => {
-    debugger
     this.setState({[event.target.name]: event.target.value})
-    this.checkPassword()
   }
 
 
   submitForm = (event) => {
     event.preventDefault()
     if (this.state.password_conf !== this.state.password) {
-       console.log('Your passwords must match')
+       alert('Your passwords must match')
        return
     }
     adapter.createUser({
@@ -61,70 +59,74 @@ export default class Login extends Component {
 
   render() {
     return(
-      <div id="create-user-page">
-      <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
-        <Grid.Column style={{ maxWidth: 400 }}>
-          <Header as='h2' textAlign='center' style={{color: 'yellow'}}>
-            Create your account
-          </Header>
-          <Form>
-            <Form.Field>
-              <label>Username</label>
-              <input
-              name='username'
-              onChange={this.setChange}/>
-            </Form.Field>
+        <div id="create-user-page">
+        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+          <Grid.Column style={{ maxWidth: 300 }}>
+            <Header
+            as='h2'
+            textAlign='center'
+            className=''>
+              Create your account
+            </Header>
+            <Form>
+              <Form.Field>
+                <label>Username</label>
+                <input
+                name='username'
+                onChange={this.setChange}/>
+              </Form.Field>
 
-            <Form.Field>
-              <label>First Name</label>
-              <input
-              name='firstname'
-              onChange={this.setChange}/>
-            </Form.Field>
+              <Form.Field>
+                <label>First Name</label>
+                <input
+                name='firstname'
+                onChange={this.setChange}/>
+              </Form.Field>
 
-            <Form.Field>
-              <label>Last Name</label>
-              <input
-              name='lastname'
-              onChange={this.setChange}/>
-            </Form.Field>
+              <Form.Field>
+                <label>Last Name</label>
+                <input
+                name='lastname'
+                onChange={this.setChange}/>
+              </Form.Field>
 
-            <Form.Field>
-              <label>Password</label>
-              <input
-              name='password'
-              type='password'
-              onChange={this.setChange}/>
-            </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input
+                name='password'
+                type='password'
+                onChange={this.setChange}/>
+              </Form.Field>
 
-            <Form.Field>
-              <label>Password Confirmation</label>
-              <input
-              name='password_conf'
-              onChange={this.setChange}/>
-            </Form.Field>
+              <Form.Field>
+                <label>Password Confirmation</label>
+                <input
+                name='password_conf'
+                type='password'
+                onChange={this.setChange}/>
+              </Form.Field>
 
-            <Form.Field>
-              <label>Profile Picture</label>
-              <input
-              name='pic'
-              placeholder="link"
-              onChange={this.setChange}/>
-            </Form.Field>
+              <Form.Field>
+                <label>Profile Picture</label>
+                <input
+                name='pic'
+                placeholder="link"
+                onChange={this.setChange}/>
+              </Form.Field>
 
-            <Button
-            type='submit'
-            onClick={this.submitForm}>
-            Submit</Button>
-          </Form>
+              <Button
+              type='submit'
+              onClick={this.submitForm}>
+              Submit</Button>
+            </Form>
 
-          <div id="login-user-option">
-          <br/>
-            <Link to="/login">Already have a profile? Head back to the login page!</Link>
-          </div>
-          </Grid.Column>
-        </Grid>
-      </div>
+            <div id="login-user-option">
+            <br/>
+              <Link to="/login">Already have a profile? Head back to the login page!</Link>
+            </div>
+            </Grid.Column>
+          </Grid>
+        </div>
     )
   }
 }

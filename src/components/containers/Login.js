@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import { adapter } from '../../Adapter'
 import { Link } from 'react-router-dom'
 import './Login.css'
-import { Button, Form, Grid, Header } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message } from 'semantic-ui-react'
 
 export default class Login extends Component {
   constructor() {
@@ -32,10 +32,12 @@ export default class Login extends Component {
 
         window.sessionStorage.setItem('jwt', json['jwt'])
 
-        // TODO: Set the user attributes in Redux instead
-        window.sessionStorage.setItem('user', JSON.stringify(json['user']))
+        // TODO: Set the user attributes in Redux instead?
+        window.sessionStorage.setItem('username', json.user.username)
+        window.sessionStorage.setItem('firstname', json.user.firstname)
+        window.sessionStorage.setItem('pic', json.user.pic)
 
-        // redirect to '/'
+        // redirect to '/homepage'
         window.location.href = 'http://localhost:3000/homepage'
       } else {
         alert('Invalid Login Credentials')
@@ -48,8 +50,11 @@ export default class Login extends Component {
     return(
       <div id="login-page">
         <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
-          <Grid.Column style={{ maxWidth: 550 }}>
-            <Header as='h2' color='#8B0000' textAlign='center'>
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header
+            as='h2'
+            id='page-header'
+            textAlign='center'>
               Login to your account
               </Header>
                 <Form size='large'>
@@ -73,7 +78,13 @@ export default class Login extends Component {
                 </Form>
                 <div id="create-user-option">
                 <br/>
-                  <Link to="/create-user">New to Spell Check? Create a new profile and get playing!</Link>
+                  <Message compact
+                  size='mini'
+                  color='black'>
+                    <Link to="/create-user">
+                      New to Spell Checker? Create a new profile and get playing!
+                    </Link>
+                  </Message>
                 </div>
           </Grid.Column>
         </Grid>

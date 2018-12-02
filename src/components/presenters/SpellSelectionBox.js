@@ -18,10 +18,10 @@ componentDidMount() {
       <>
         <Grid columns={2}>
           <Grid.Row>
-            <Grid.Column>
-              <NavBar />
-            </Grid.Column>
-            <Grid.Column floated={'right'} width={12}>
+            <NavBar/>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column floated={'right'} width={13}>
               <SpellSearchBar />
               <MatchedSpells />
             </Grid.Column>

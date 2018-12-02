@@ -21,7 +21,6 @@ class HomePage extends Component {
           <Grid.Column>
             <Route path="/spells" component={SpellSelectionBox}/>
           </Grid.Column>
-
           {/* These components have not been defined */}
           <Route path="/characters" />
           <Route path="/sessions" />

@@ -4,11 +4,13 @@ import { Grid } from 'semantic-ui-react'
 
 import NavBar from '../presenters/NavBar'
 import CreateChar from './CreateChar'
+import { adapter }from '../../Adapter'
+import { fetchingChars } from '../../redux/actions/charActions'
 
 class CharacterSelectionBox extends Component {
 
   componentDidMount() {
-    // this.props.fetchingChars()
+    this.props.fetchingChars()
   }
 
   render() {
@@ -19,8 +21,9 @@ class CharacterSelectionBox extends Component {
             <Grid.Column>
               <NavBar />
             </Grid.Column>
-            <Grid.Column floated={'right'} width={16}>
-              <CreateChar />
+            <Grid.Column/>
+            <Grid.Column floated={'right'} width={10}>
+
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -29,5 +32,10 @@ class CharacterSelectionBox extends Component {
   }
 }
 
-// TODO: Connect this to store once reducers, actions, and mappers are established
-export default CharacterSelectionBox
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchingChars: () => {dispatch(fetchingChars())}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(CharacterSelectionBox)

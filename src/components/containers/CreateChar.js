@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Column, Header, Modal, Checkbox } from 'semantic-ui-react'
+import { Button, Form, Grid, Column, Header, Modal, Checkbox, Divider } from 'semantic-ui-react'
 
 import { dice } from '../../utils/DiceRoller'
 import { adapter } from '../../Adapter'
@@ -76,93 +76,101 @@ export default class CreateChar extends Component {
 
   render() {
     return(
-      <div id="create-char-page">
-      <Grid textAlign="center" style={{ height: '100%' }}>
-        <Grid.Column style={{ maxWidth: 550 }}>
-          <Header as='h2' textAlign='center'>
-            Create your new character
-          </Header>
-          <Form>
-            <Form.Field
-              label='Name'
-              control='input'
-              onChange={this.setChange}
-            />
-            <Form.Group>
-              <Form.Dropdown fluid search selection
-                label='Class'
-                placeholder='Select Class'
-                options={this.classOptions}
+      <Modal trigger={<Button>Create Character</Button>}>
+        <div id="create-char-page">
+        <Grid textAlign="center" style={{ height: '100%' }}>
+          <Grid.Column style={{ maxWidth: 550 }}>
+            <Header as='h2' textAlign='center'>
+              Create your new character
+            </Header>
+            <Form>
+              <Form.Field
+                label='Name'
+                control='input'
+                onChange={this.setChange}
+              />
+              <Form.Group>
+                <Form.Dropdown fluid search selection
+                  label='Class'
+                  placeholder='Select Class'
+                  options={this.classOptions}
+                />
+
+                <Form.Dropdown selection compact search
+                  label='Level'
+                  placeholder='Select Level'
+                  options={this.options20}
+                />
+              </Form.Group>
+
+              <Form.Group centered>
+                <Grid columns={2}>
+                  <Grid.Column>
+
+                  <Form.Dropdown selection compact search
+                    label='Str'
+                    placeholder='Strength'
+                    options={this.options20}
+                  />
+
+                  <Form.Dropdown selection compact search
+                    label='Dex'
+                    placeholder='Dexterity'
+                    options={this.options20}
+                  />
+
+                  <Form.Dropdown selection compact search
+                    label='Con'
+                    placeholder='Constitution'
+                    options={this.options20}
+                  />
+                  </Grid.Column>
+                  <Divider vertical></Divider>
+                  <Grid.Column>
+
+                  <Form.Dropdown selection compact search
+                    label='Int'
+                    placeholder='Intelligence'
+                    options={this.options20}
+                  />
+
+                  <Form.Dropdown selection compact search
+                    label='Wis'
+                    placeholder='Wisdom'
+                    options={this.options20}
+                  />
+
+                  <Form.Dropdown selection compact search
+                    label='Cha'
+                    placeholder='Charisma'
+                    options={this.options20}
+                  />
+                  </Grid.Column>
+                </Grid>
+              </Form.Group>
+
+              <Form.Field compact
+                label='Character Pic'
+                placeholder="Optional Link"
+                control='input'
+                onChange={this.setChange}
               />
 
-              <Form.Dropdown selection compact search
-                label='Level'
-                placeholder='Select Level'
-                options={this.options20}
+              <Form.Field
+                control={Checkbox}
+                label='I agree to bring this character to life'
               />
-            </Form.Group>
 
-            <Form.Group>
+              <Button
+              type='submit'
+              onClick={this.submitForm}>
+              Submit</Button>
+            </Form>
 
-                <Form.Dropdown selection compact search
-                  label='Str'
-                  placeholder='Strength'
-                  options={this.options20}
-                />
-
-                <Form.Dropdown selection compact search
-                  label='Dex'
-                  placeholder='Dexterity'
-                  options={this.options20}
-                />
-
-                <Form.Dropdown selection compact search
-                  label='Con'
-                  placeholder='Constitution'
-                  options={this.options20}
-                />
-
-                <Form.Dropdown selection compact search
-                  label='Int'
-                  placeholder='Intelligence'
-                  options={this.options20}
-                />
-
-                <Form.Dropdown selection compact search
-                  label='Wis'
-                  placeholder='Wisdom'
-                  options={this.options20}
-                />
-
-                <Form.Dropdown selection compact search
-                  label='Cha'
-                  placeholder='Charisma'
-                  options={this.options20}
-                />
-
-            </Form.Group>
-
-            <Form.Field compact
-              label='Character Pic'
-              placeholder="Optional Link"
-              control='input'
-              onChange={this.setChange}
-            />
-
-            <Form.Field
-              control={Checkbox}
-              label='I agree to bring this character to life'
-            />
-
-            <Button
-            type='submit'
-            onClick={this.submitForm}>
-            Submit</Button>
-          </Form>
-
-          </Grid.Column>
-        </Grid>
-      </div>
+            </Grid.Column>
+          </Grid>
+        </div>
+      </Modal>
     )
   }
 }

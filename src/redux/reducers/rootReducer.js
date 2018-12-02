@@ -1,8 +1,11 @@
 import { combineReducers } from 'redux'
-import { spellsReducer, searchTextReducer, loadingReducer } from './spellsReducer'
+import { spellsReducer, searchTextReducer, loadingSpellsReducer } from './spellsReducer'
+import { charsReducer, loadingCharsReducer } from './charsReducer'
 
 export const rootReducer = combineReducers({
   spells: spellsReducer,
   searchText: searchTextReducer,
-  isLoading: loadingReducer
+  isLoadingSpells: loadingSpellsReducer,
+  isLoadingChars: loadingCharsReducer,
+  chars: charsReducer
 })

@@ -7,3 +7,8 @@
   background-size: cover;
   height: 650px;
 }
+
+#page-header {
+    color: white;
+    font-size: 3em;
+}
