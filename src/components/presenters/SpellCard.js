@@ -3,7 +3,6 @@ import { Card, Header } from 'semantic-ui-react'
 import Truncate from 'react-truncate'
 
 const SpellCard = props => {
-  debugger
   return (
     <Card raised>
       <Card.Header

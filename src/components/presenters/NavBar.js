@@ -3,6 +3,10 @@ import { Menu, Image, Icon, Header, Button, Modal } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/SpellCheckLogo.png'
 import adapter from '../../Adapter'
+import { connect } from 'react-redux'
+import { mapPageToProps } from '../../redux/mapStateToProps'
+import { setActivePage } from '../../redux/actions/menuActions'
+import './NavBar.css'
 
 class NavBar extends Component {
 
@@ -24,6 +28,7 @@ class NavBar extends Component {
         <Menu
         inverted={true}
         widths={8}
+        className='navbar'
         >
 
         <Menu.Item>
@@ -35,7 +40,9 @@ class NavBar extends Component {
         />
         </Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item
+          active={true}
+        >
           <Link to='/spells'>
           <Icon name='bolt' /> Spells
           </Link>
@@ -104,4 +111,10 @@ class NavBar extends Component {
     }
   }
 
-export default NavBar
+  const mapDispatchToProps = dispatch => {
+    return {
+      setActivePage: (page) => {dispatch(setActivePage(page))}
+    }
+  }
+
+export default connect(mapPageToProps, mapDispatchToProps)(NavBar)

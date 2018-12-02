@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { adapter } from '../../Adapter'
+import adapter from '../../Adapter'
 import { Button, Form, Grid, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import './CreateUser.css'

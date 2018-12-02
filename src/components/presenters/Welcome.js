@@ -5,9 +5,9 @@ import './Welcome.css'
 
 const Welcome = () => {
   return (
+    <Grid>
     <div id="welcome-screen">
-    <Grid.Column/>
-      <Grid.Column width={5}>
+      <Grid.Column width={16}>
         <div id="welcome-selector-box">
           <Segment padded inverted centered>
             <Header
@@ -30,8 +30,8 @@ const Welcome = () => {
             </Segment>
             </div>
           </Grid.Column>
-          <Grid.Column/>
     </div>
+    </Grid>
   )
 }
 

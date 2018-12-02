@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 
 import NavBar from '../presenters/NavBar'
-import { adapter }from '../../Adapter'
+import adapter from '../../Adapter'
 import { dice } from '../../utils/DiceRoller'
 import DiceRollingInterface from '../presenters/DiceRollingInterface'
 

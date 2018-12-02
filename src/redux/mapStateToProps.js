@@ -1,11 +1,7 @@
 const mapSpellsToProps = state => {
   return {
-    spells: state.spells.filter(
-      spell => spell.name.toLowerCase().includes(state.searchText.toLowerCase())
-    ),
-    // Should this be changed to spellIsLoading?
-    isLoading: state.isLoading,
-    isSearching: state.searchText.length > 0
+    spells: state.spells,
+    isLoadingSpells: state.isLoadingSpells,
   }
 }
 
@@ -17,17 +13,17 @@ const mapSpellToProps = (state, ownProps) => {
   }
 }
 
-const mapSearchTextToProps = (state) => {
-  return {
-    searchText: state.searchText
-  }
-}
-
 const mapCharsToProps = (state) => {
   return {
-    // Should charIsLoading be used here?
-    chars: state.chars
+    chars: state.chars,
+    isLoadingChars: state.isLoadingChars
   }
 }
 
-export { mapSpellToProps, mapSearchTextToProps, mapSpellsToProps }
+const mapPageToProps = (state) => {
+  return {
+    activePage: state.activePage
+  }
+}
+
+export { mapSpellToProps, mapSpellsToProps, mapCharsToProps, mapPageToProps }

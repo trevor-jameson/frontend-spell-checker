@@ -1,21 +1,11 @@
-import { LOADING_SPELLS, FETCHED_SPELLS, SELECT_SPELLS, CHANGE_SEARCH_TEXT } from '../actionTypes'
+import { LOADING_SPELLS, FETCHED_SPELLS, SELECT_SPELLS } from '../actionTypes'
 
 export const spellsReducer = (prevState = [], action) => {
   switch (action.type) {
     case FETCHED_SPELLS:
-      console.log('fetched spells')
       return action.spells;
     default:
       return prevState
-  }
-}
-
-export const searchTextReducer = (prevState = '', action) => {
-  switch (action.type) {
-    case CHANGE_SEARCH_TEXT:
-      return action.searchText
-    default:
-      return prevState;
   }
 }
 

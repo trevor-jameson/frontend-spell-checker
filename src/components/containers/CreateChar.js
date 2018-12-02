@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Form, Grid, Column, Header, Modal, Checkbox, Divider } from 'semantic-ui-react'
 
 import { dice } from '../../utils/DiceRoller'
-import { adapter } from '../../Adapter'
+import adapter from '../../Adapter'
 
 export default class CreateChar extends Component {
   constructor() {

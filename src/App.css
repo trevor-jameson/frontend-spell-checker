@@ -1,1 +1,8 @@
+.main-page {
+  margin-top: 10%;
+  overflow: hidden;
+}
 
+.grid {
+  margin: 10px, 10px, 10px, 10px;
+}

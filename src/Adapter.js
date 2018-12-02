@@ -1,5 +1,5 @@
 // Login user, create user, and logout user do not require JWTs.
-export default class Adapter {
+class Adapter {
   constructor(backDomain, frontDomain) {
     this.BACKEND_URL = backDomain
     this.FRONTEND_URL = frontDomain
@@ -63,4 +63,6 @@ export default class Adapter {
 }
 
 // Set the (backend's, frontend's) current url here
-export const adapter = new Adapter('http://localhost:3001', 'http://localhost:3000')
+const adapter = new Adapter('http://localhost:3001', 'http://localhost:3000')
+
+export default adapter

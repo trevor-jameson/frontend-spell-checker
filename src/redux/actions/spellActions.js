@@ -1,11 +1,7 @@
-import { adapter } from '../../Adapter'
-import { FETCHED_SPELLS, CHANGE_SEARCH_TEXT, LOADING_SPELLS } from '../actionTypes'
+import adapter from '../../Adapter'
+import { FETCHED_SPELLS, LOADING_SPELLS } from '../actionTypes'
 
 // ACTION CREATORS
-
-function changeSearchText(searchText) {
-  return { type: CHANGE_SEARCH_TEXT, searchText }
-}
 
 function fetchedSpells(spells) {
   return { type: FETCHED_SPELLS, spells: spells }
@@ -28,4 +24,4 @@ function fetchingSpells(){
 }
 // The goal is to create an action, that when complete, dispatches another action async
 
-export { fetchingSpells, changeSearchText, fetchedSpells }
+export { fetchingSpells, fetchedSpells }
