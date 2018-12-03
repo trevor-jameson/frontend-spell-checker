@@ -52,7 +52,7 @@ class SpellSelectionBox extends Component {
           <Grid.Row id='spell-box'>
               {this.props.isLoadingSpells ? loading :
               <>
-              <Grid.Column width={6} centered>
+              <Grid.Column width={10} centered>
                 <SpellSearchBar
                   onClickSearch={this.onClickSearch}
                 />

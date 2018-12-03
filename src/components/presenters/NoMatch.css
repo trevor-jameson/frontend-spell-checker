@@ -8,3 +8,7 @@
   height: 100%;
   width: 100%;
 }
+#no-match-msg {
+  margin-left: 35vw;
+  margin-top: 5vw;
+}

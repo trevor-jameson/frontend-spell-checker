@@ -1,8 +1,15 @@
-.main-page {
-  margin-top: 10%;
-  overflow: hidden;
+#grid {
+  height: 100vw;
+  width: 100vw;
+  margin: 0 0 0 0;
 }
 
-.grid {
-  margin: 10px, 10px, 10px, 10px;
+#navbar-row {
+  height: 20vw;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+#user-pages-row {
+  padding: 0 0 0 0;
 }

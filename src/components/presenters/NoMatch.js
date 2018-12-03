@@ -1,29 +1,31 @@
-import React from 'react'
-import { Grid, Message } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Message } from 'semantic-ui-react'
 import './NoMatch.css'
 
-const NoMatch = () => {
-  return(
-    <div id='no-match'>
-    <Grid centered>
-    <Grid.Row>
-    </Grid.Row>
-    <Grid.Row verticalAlign='bottom' size={4}>
-      <Grid.Column
-      textAlign='centered'
-      verticalAlign='bottom'
-      >
-        <Message
-          header="Where do you think you're going?"
-          content="404 Error - Page not found"
-          compact={true}
-          warning={true}
+// Refactored as smart component to hide navbar with componentDidMount
+// was unable to find navbar as dumb component, because it was not rendered
+// during NoMatch's initial execution
+
+class NoMatch extends Component {
+
+  componentDidMount() {
+    // Find and hide row containing navbar
+    const navbar = document.getElementById('navbar-row')
+    navbar.style.display = 'none'
+  }
+
+  render() {
+    return (
+      <div id='no-match'>
+        <Message compact warning
+        textAlign='centered'
+        header="Where do you think you're going?"
+        content="404 Error - Page not found"
+        id='no-match-msg'
         />
-      </Grid.Column>
-      </Grid.Row>
-    </Grid>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 export default NoMatch

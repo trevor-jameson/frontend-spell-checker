@@ -1,7 +1,13 @@
 .navbar {
   top: 0;
+  height: 7vw;
+  position: fixed;
 }
 
 .logo {
   margin-right: 50px;
+}
+
+#navbar-row {
+  height: 10vw;
 }

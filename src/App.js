@@ -29,11 +29,11 @@ class App extends Component {
           <Route path="/login" component={Login}/>
           <Route path="/create-user" component={CreateUser}/>
           {window.sessionStorage.jwt === undefined ? <GuestUser/> :
-            <Grid>
-              <Grid.Row>
+            <Grid stretched={true} id='grid'>
+              <Grid.Row id="navbar-row">
                 <NavBar />
               </Grid.Row>
-              <Grid.Row>
+              <Grid.Row id="user-pages-row">
                 <Switch>
                   <Route path="/spells" component={SpellSelectionBox} />
                   <Route path="/characters" component={CharacterSelectionBox} />
