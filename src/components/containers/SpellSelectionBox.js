@@ -4,9 +4,10 @@ import { mapSpellsToProps } from '../../redux/mapStateToProps'
 import loading from '../presenters/LoadingScreen'
 
 import { connect } from 'react-redux'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header, Image, Divider } from 'semantic-ui-react'
 
 import './SpellSelectionBox.css'
+import book from '../../images/mystic_book_by_adalbertofsouza_d2xvmui-pre.jpg'
 import { NAME, CLASS, LEVEL, SCHOOL, CONCENTRATION } from './SpellSearchBarFilters'
 
 import SpellSearchBar from './SpellSearchBar'
@@ -28,6 +29,7 @@ class SpellSelectionBox extends Component {
 
   onClickSearch = (event) => {
     //Whatever the text is supposed to be
+    debugger
     // const text = event.target.
     const text = ''
     const spells = this.props.spells
@@ -49,20 +51,40 @@ class SpellSelectionBox extends Component {
     return (
       <>
         <Grid>
-          <Grid.Row id='spell-box'>
-              {this.props.isLoadingSpells ? loading :
-              <>
-              <Grid.Column width={10} centered>
-                <SpellSearchBar
-                  onClickSearch={this.onClickSearch}
+          {this.props.isLoadingSpells ? loading :
+            <>
+              <Grid.Row centered>
+                <Grid.Column width={8} centered>
+                  <SpellSearchBar
+                    onClickSearch={this.onClickSearch}
                 />
-              </Grid.Column>
+                <Divider clearing />
+                </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row centered>
+                <Header icon
+                  as='h1'
+                  textAlign='center'
+                  id='book-header'
+                >
+                  <Header.Content>
+                    Spell Book
+                    <Image circular
+                      size='small'
+                      src={book}
+                    />
+                  </Header.Content>
+                </Header>
+              </Grid.Row>
+
+              <Grid.Row>
                 <MatchedSpells
                   spells={this.state.matchedSpells ? this.state.matchedSpells : this.props.spells}
                 />
-              </>
-              }
-          </Grid.Row>
+              </Grid.Row>
+            </>
+          }
         </Grid>
       </>
     )

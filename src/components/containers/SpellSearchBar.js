@@ -17,6 +17,7 @@ const SpellSearchBar = (props) => (
         />
       }
     />
+    <Form.Group widths='equal'>
     <Form.Dropdown fluid search selection
       label='Class'
       placeholder='Select Class'
@@ -31,8 +32,9 @@ const SpellSearchBar = (props) => (
       label='School'
     />
     <Form.Checkbox toggle
-      label='Concentration?'
+      label='Concentrate?'
     />
+    </Form.Group>
   </Form>
 );
 

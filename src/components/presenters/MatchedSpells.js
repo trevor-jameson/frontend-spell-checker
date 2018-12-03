@@ -7,15 +7,17 @@ import SpellCard from './SpellCard'
 // Import Semantic-UI
 const MatchedSpells = props => {
   return (
-    <Card.Group
-    itemsPerRow={3}
-    className='main-page'
-    >
-    {props.spells.map(spell => <SpellCard
-      key={spell.id}
-      spell={spell}
-      />)}
+    <>
+      <Card.Group
+      itemsPerRow={3}
+      id='matched-spells'
+      >
+      {props.spells.map(spell => <SpellCard
+        key={spell.id}
+        spell={spell}
+        />)}
       </Card.Group>
+    </>
   )
 }
 

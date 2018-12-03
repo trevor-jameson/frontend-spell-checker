@@ -1,4 +1,12 @@
 .loadEvent {
-  height: 500px;
+  height: 100vw;
   width: 100vw;
+}
+
+#book-header {
+  font-family: fantasy;
+}
+
+#matched-spells {
+  margin: 10px 10px 10px 10px;
 }

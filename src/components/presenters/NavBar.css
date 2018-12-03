@@ -1,7 +1,6 @@
 .navbar {
   top: 0;
   height: 7vw;
-  position: fixed;
 }
 
 .logo {
@@ -10,4 +9,8 @@
 
 #navbar-row {
   height: 10vw;
+  display: inline-block;
+  position: fixed;
+  overflow: hidden;
+  z-index: 1;
 }

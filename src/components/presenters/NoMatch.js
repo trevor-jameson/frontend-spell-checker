@@ -9,9 +9,10 @@ import './NoMatch.css'
 class NoMatch extends Component {
 
   componentDidMount() {
-    // Find and hide row containing navbar
+    // Find and hide rows containing navbar and user-pages
     const navbar = document.getElementById('navbar-row')
     navbar.style.display = 'none'
+
   }
 
   render() {
