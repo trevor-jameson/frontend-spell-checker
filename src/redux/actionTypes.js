@@ -7,5 +7,3 @@ export const SELECT_SPELLS = 'SELECT_SPELLS'
 export const FETCHED_CHARS = 'FETCHED_CHARS'
 
 export const LOADING_CHARS = 'LOADING_CHARS'
-
-export const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE'

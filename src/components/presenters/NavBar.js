@@ -3,27 +3,19 @@ import { Menu, Image, Icon, Header, Button, Modal } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/SpellCheckerLogo.png'
 import adapter from '../../utils/Adapter'
-import { connect } from 'react-redux'
-import { mapPageToProps } from '../../redux/mapStateToProps'
-import { setActivePage } from '../../redux/actions/menuActions'
 import codeFreeze from '../../utils/CodeFreeze'
 import './NavBar.css'
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      activePage: props.activePage
-    }
-  }
 
-  setPage = (event) => {
-    const page = event.currentTarget.id
-    setActivePage(page)
-  }
+  state = { activePage: 'spells'}
+
+  setPage = (e, { name }) => this.setState({ activePage: name })
 
 
     render() {
+      const { activePage } = this.state
+
       return (
         <Menu
         inverted={true}
@@ -41,7 +33,9 @@ class NavBar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          active={this.props.activePage === 'spells'}
+          name="spells"
+          active={activePage === 'spells'}
+          onClick={this.setPage}
         >
           <Link to='/spells'>
           <Icon name='bolt' /> Spells
@@ -49,7 +43,9 @@ class NavBar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          active={this.props.activePage === 'characters'}
+          name="characters"
+          active={activePage === 'characters'}
+          onClick={this.setPage}
         >
           <Link to='/characters'>
           <Icon name='universal access'/> Characters
@@ -57,7 +53,9 @@ class NavBar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          active={this.props.activePage === 'dice'}
+          name="dice"
+          active={activePage === 'dice'}
+          onClick={this.setPage}
         >
           <Link to='/dice'>
           <Icon name='modx' /> Dice Roller
@@ -65,7 +63,9 @@ class NavBar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          active={this.props.activePage === 'sessions'}
+          name="sessions"
+          active={activePage === 'sessions'}
+          onClick={this.setPage}
         >
           <Link to='/sessions'>
           <Icon name='trophy' /> Sessions
@@ -76,28 +76,29 @@ class NavBar extends Component {
           <Menu.Item>
             <Icon name="log out"/> Logout
           </Menu.Item>
-        }
-        basic
-        size='small'
-        >
-        <Header icon='cog' content="Logout of Spell Check?" />
-        <Modal.Content>
-          <p>
-            Are you sure you want to log out of SpellCheck? Is something wrong with you?!
-          </p>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button basic color='red' inverted>
-            <Icon name='remove' /> No
-          </Button>
-
-          <Button
-            color='green'
-            inverted
-            onClick={adapter.logoutUser}
+          }
+          basic
+          size='small'
           >
-            <Icon name='checkmark' /> Yes
-          </Button>
+          <Header icon='cog' content="Logout of Spell Check?" />
+          <Modal.Content>
+            <p>
+              Are you sure you want to log out of SpellCheck? Is something wrong with you?!
+            </p>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button basic inverted
+            color='red'>
+              <Icon name='remove' /> No
+            </Button>
+
+            <Button
+              color='green'
+              inverted
+              onClick={adapter.logoutUser}
+            >
+              <Icon name='checkmark' /> Yes
+            </Button>
           </Modal.Actions>
         </Modal>
 
@@ -118,10 +119,4 @@ class NavBar extends Component {
     }
   }
 
-  const mapDispatchToProps = dispatch => {
-    return {
-      setActivePage: (page) => {dispatch(setActivePage(page))}
-    }
-  }
-
-export default connect(mapPageToProps, mapDispatchToProps)(NavBar)
+export default NavBar

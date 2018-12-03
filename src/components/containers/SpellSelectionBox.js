@@ -49,9 +49,6 @@ class SpellSelectionBox extends Component {
     return (
       <>
         <Grid>
-          <Grid.Row>
-            <NavBar/>
-          </Grid.Row>
           <Grid.Row id='spell-box'>
               {this.props.isLoadingSpells ? loading :
               <>

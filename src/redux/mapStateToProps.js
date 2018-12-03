@@ -20,10 +20,4 @@ const mapCharsToProps = (state) => {
   }
 }
 
-const mapPageToProps = (state) => {
-  return {
-    activePage: state.activePage
-  }
-}
-
-export { mapSpellToProps, mapSpellsToProps, mapCharsToProps, mapPageToProps }
+export { mapSpellToProps, mapSpellsToProps, mapCharsToProps }

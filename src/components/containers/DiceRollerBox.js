@@ -27,15 +27,10 @@ class DiceRollerBox extends Component {
   render() {
     return (
       <>
-        <Grid columns={2}>
-          <Grid.Row>
-            <NavBar />
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column floated={'right'} width={10}>
-              <DiceRollingInterface result={this.state.result} roll={this.rollTheDice} />
-            </Grid.Column>
-          </Grid.Row>
+        <Grid>
+          <Grid.Column floated={'right'} width={10}>
+            <DiceRollingInterface result={this.state.result} roll={this.rollTheDice} />
+          </Grid.Column>
         </Grid>
       </>
     )

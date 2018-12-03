@@ -10,13 +10,6 @@ import { fetchingChars } from '../../redux/actions/charActions'
 import { mapCharsToProps } from '../../redux/mapStateToProps'
 
 class CharacterSelectionBox extends Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     isLoadingChars: true,
-  //     chars: []
-  //   }
-  // }
 
   componentDidMount() {
     this.props.fetchingChars()
@@ -26,16 +19,11 @@ class CharacterSelectionBox extends Component {
     return (
       <>
         <Grid>
-          <Grid.Row>
-            <NavBar />
-          </Grid.Row>
-          <Grid.Row>
-            {this.props.isLoadingChars ? loading :
-              <Grid.Column floated={'right'} width={10}>
+          {this.props.isLoadingChars ? loading :
+            <Grid.Column floated={'right'} width={10}>
 
-              </Grid.Column>
-            }
-          </Grid.Row>
+            </Grid.Column>
+          }
         </Grid>
       </>
     )
