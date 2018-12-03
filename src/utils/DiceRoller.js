@@ -54,9 +54,11 @@ const rollStats = () => {
 }
 
 
-export const dice = {
+const dice = {
   roll,
   rollAdvantage,
   rollDisadvantage,
   rollStats
 }
+
+export default dice

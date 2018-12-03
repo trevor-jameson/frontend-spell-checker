@@ -4,7 +4,7 @@ import { Grid } from 'semantic-ui-react'
 
 import NavBar from '../presenters/NavBar'
 import CreateChar from './CreateChar'
-import adapter from '../../Adapter'
+import adapter from '../../utils/Adapter'
 import loading from '../presenters/LoadingScreen'
 import { fetchingChars } from '../../redux/actions/charActions'
 import { mapCharsToProps } from '../../redux/mapStateToProps'

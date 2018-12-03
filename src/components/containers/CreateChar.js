@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Button, Form, Grid, Column, Header, Modal, Checkbox, Divider } from 'semantic-ui-react'
 
-import { dice } from '../../utils/DiceRoller'
-import adapter from '../../Adapter'
+import dice from '../../utils/DiceRoller'
+import adapter from '../../utils/Adapter'
+import options from '../../utils/GameOptions'
 
 export default class CreateChar extends Component {
   constructor() {
@@ -22,28 +23,6 @@ export default class CreateChar extends Component {
     pic: ''
     }
   }
-
-  classOptions = [
-    {key: 'Barbarian', value: 'Barbarian', text: 'Barbarian'},
-    {key: 'Bard', value: 'Bard', text: 'Bard'},
-    {key: 'Cleric', value: 'Cleric', text: 'Cleric'},
-    {key: 'Druid', value: 'Druid', text: 'Druid'},
-    {key: 'Fighter', value: 'Fighter', text: 'Fighter'},
-    {key: 'Monk', value: 'Monk', text: 'Monk'},
-    {key: 'Paladin', value: 'Paladin', text: 'Paladin'},
-    {key: 'Ranger', value: 'Ranger', text: 'Ranger'},
-    {key: 'Rogue', value: 'Rogue', text: 'Rogue'},
-    {key: 'Sorcerer', value: 'Sorcerer', text: 'Sorcerer'},
-    {key: 'Warlock', value: 'Warlock', text: 'Warlock'},
-    {key: 'Wizard', value: 'Wizard', text: 'Wizard'}
- ]
-
- options20 = (() => {
-   const arr20 = [...Array(21).keys()].slice(1)
-   return arr20.map(score => {
-     return {key: score.toString(), value: score.toString(), text: score.toString()}
-   })
- })()
 
   setChange = event => {
     this.setState({[event.target.placeholder]: event.target.value})
@@ -93,13 +72,13 @@ export default class CreateChar extends Component {
                 <Form.Dropdown fluid search selection
                   label='Class'
                   placeholder='Select Class'
-                  options={this.classOptions}
+                  options={options.classOptions}
                 />
 
                 <Form.Dropdown selection compact search
                   label='Level'
                   placeholder='Select Level'
-                  options={this.options20}
+                  options={options.options20}
                 />
               </Form.Group>
 
@@ -110,19 +89,19 @@ export default class CreateChar extends Component {
                   <Form.Dropdown selection compact search
                     label='Str'
                     placeholder='Strength'
-                    options={this.options20}
+                    options={options.options20}
                   />
 
                   <Form.Dropdown selection compact search
                     label='Dex'
                     placeholder='Dexterity'
-                    options={this.options20}
+                    options={options.options20}
                   />
 
                   <Form.Dropdown selection compact search
                     label='Con'
                     placeholder='Constitution'
-                    options={this.options20}
+                    options={options.options20}
                   />
                   </Grid.Column>
                   <Divider vertical></Divider>
@@ -131,19 +110,19 @@ export default class CreateChar extends Component {
                   <Form.Dropdown selection compact search
                     label='Int'
                     placeholder='Intelligence'
-                    options={this.options20}
+                    options={options.options20}
                   />
 
                   <Form.Dropdown selection compact search
                     label='Wis'
                     placeholder='Wisdom'
-                    options={this.options20}
+                    options={options.options20}
                   />
 
                   <Form.Dropdown selection compact search
                     label='Cha'
                     placeholder='Charisma'
-                    options={this.options20}
+                    options={options.options20}
                   />
                   </Grid.Column>
                 </Grid>

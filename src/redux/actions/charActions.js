@@ -1,4 +1,4 @@
-import adapter from '../../Adapter'
+import adapter from '../../utils/Adapter'
 import { FETCHED_CHARS,  LOADING_CHARS } from '../actionTypes'
 
 // ACTION CREATORS

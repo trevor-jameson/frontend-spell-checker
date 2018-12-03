@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import adapter from '../../Adapter'
+import adapter from '../../utils/Adapter'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import { Button, Form, Grid, Header, Message } from 'semantic-ui-react'

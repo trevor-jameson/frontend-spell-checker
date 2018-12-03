@@ -5,8 +5,7 @@ import './App.css';
 
 // Container components
 
-import SpellSelectionBox from './components/presenters/SpellSelectionBox'
-import HomePage from './components/containers/HomePage'
+import SpellSelectionBox from './components/containers/SpellSelectionBox'
 import CharacterSelectionBox from './components/containers/CharacterSelectionBox'
 import Login from './components/containers/Login'
 import CreateUser from './components/containers/CreateUser'

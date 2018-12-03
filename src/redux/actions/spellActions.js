@@ -1,4 +1,4 @@
-import adapter from '../../Adapter'
+import adapter from '../../utils/Adapter'
 import { FETCHED_SPELLS, LOADING_SPELLS } from '../actionTypes'
 
 // ACTION CREATORS
