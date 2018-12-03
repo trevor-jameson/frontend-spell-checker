@@ -1,6 +1,5 @@
 // External Framework Components
 import React, { Component, Fragment } from 'react';
-import { Grid } from 'semantic-ui-react'
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 
@@ -27,9 +26,13 @@ class App extends Component {
         <Route path="/welcome" component={Welcome}/>
         <Route path="/login" component={Login}/>
         <Route path="/create-user" component={CreateUser}/>
-        <Route path="/spells" component={SpellSelectionBox} />
-        <Route path="/characters" component={CharacterSelectionBox} />
-        <Route path="/dice" component={DiceRollerBox} />
+        {window.sessionStorage.jwt === undefined ? null :
+          <>
+          <Route path="/spells" component={SpellSelectionBox} />
+          <Route path="/characters" component={CharacterSelectionBox} />
+          <Route path="/dice" component={DiceRollerBox} />
+          </>
+        }
         <Route component={NoMatch} />
       </Switch>
     );

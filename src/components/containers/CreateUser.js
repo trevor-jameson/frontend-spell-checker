@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import adapter from '../../Adapter'
-import { Button, Form, Grid, Header } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import './CreateUser.css'
 
@@ -61,58 +61,65 @@ export default class CreateUser extends Component {
     return(
         <div id="create-user-page">
         <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
-          <Grid.Column style={{ maxWidth: 300 }}>
+          <Grid.Column centered>
             <Header
-            as='h2'
+            as='h1'
             textAlign='center'
-            className=''>
+            id='create-user-header'
+            >
               Create your account
             </Header>
-            <Form>
-              <Form.Field>
-                <label>Username</label>
-                <input
-                name='username'
-                onChange={this.setChange}/>
-              </Form.Field>
+            <Form style={{maxWidth: '450px'}} id='create-user-form'>
+              <Form.Group widths='equal'>
+                <Form.Field>
+                  <label>Username</label>
+                  <input
+                  name='username'
+                  onChange={this.setChange}/>
+                </Form.Field>
 
-              <Form.Field>
-                <label>First Name</label>
-                <input
-                name='firstname'
-                onChange={this.setChange}/>
-              </Form.Field>
+                <Form.Field>
+                  <label>Profile Picture</label>
+                  <input
+                  name='pic'
+                  placeholder="link"
+                  onChange={this.setChange}/>
+                </Form.Field>
+              </Form.Group>
 
-              <Form.Field>
-                <label>Last Name</label>
-                <input
-                name='lastname'
-                onChange={this.setChange}/>
-              </Form.Field>
+              <Form.Group widths='equal'>
+                <Form.Field>
+                  <label>First Name</label>
+                  <input
+                  name='firstname'
+                  onChange={this.setChange}/>
+                </Form.Field>
 
-              <Form.Field>
-                <label>Password</label>
-                <input
-                name='password'
-                type='password'
-                onChange={this.setChange}/>
-              </Form.Field>
+                <Form.Field>
+                  <label>Last Name</label>
+                  <input
+                  name='lastname'
+                  onChange={this.setChange}/>
+                </Form.Field>
+              </Form.Group>
 
-              <Form.Field>
-                <label>Password Confirmation</label>
-                <input
-                name='password_conf'
-                type='password'
-                onChange={this.setChange}/>
-              </Form.Field>
+              <Form.Group widths='equal'>
+                <Form.Field>
+                  <label>Password</label>
+                  <input
+                  name='password'
+                  type='password'
+                  onChange={this.setChange}/>
+                </Form.Field>
 
-              <Form.Field>
-                <label>Profile Picture</label>
-                <input
-                name='pic'
-                placeholder="link"
-                onChange={this.setChange}/>
-              </Form.Field>
+                <Form.Field>
+                  <label>Password Confirmation</label>
+                  <input
+                  name='password_conf'
+                  type='password'
+                  onChange={this.setChange}/>
+                </Form.Field>
+              </Form.Group>
 
               <Button
               type='submit'
@@ -122,7 +129,12 @@ export default class CreateUser extends Component {
 
             <div id="login-user-option">
             <br/>
-              <Link to="/login">Already have a profile? Head back to the login page!</Link>
+              <Message compact
+              size='mini'
+              color='black'
+              >
+                <Link to="/login">Already have a profile? Head back to the login page!</Link>
+              </Message>
             </div>
             </Grid.Column>
           </Grid>

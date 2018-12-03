@@ -1,15 +1,12 @@
-body {
-  background: #ffd89b;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #19547b, #ffd89b);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 #app-title {
   text-decoration: underline;
+  text-underline-position: under;
   text-decoration-color: red;
   text-decoration-style: wavy;
   font-family: 'Stalemate', 'cursive';
-  font-size: 1em;
+  font-size: 4em;
+  padding-bottom: 20px;
+  margin-left: 15%
 }
 
 #welcome-screen {
@@ -26,7 +23,7 @@ body {
 }
 
 #welcome-selector-box {
-  opacity: 0.80;
+  opacity: 1;
   margin-top: 5%;
   margin-left: 35%;
   margin-right: 35%;

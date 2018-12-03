@@ -1,27 +1,21 @@
 import React, { Component } from 'react'
 import { Menu, Image, Icon, Header, Button, Modal } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import logo from '../../images/SpellCheckLogo.png'
+import logo from '../../images/SpellCheckerLogo.png'
 import adapter from '../../Adapter'
 import { connect } from 'react-redux'
 import { mapPageToProps } from '../../redux/mapStateToProps'
 import { setActivePage } from '../../redux/actions/menuActions'
+import codeFreeze from '../../utils/CodeFreeze'
 import './NavBar.css'
 
 class NavBar extends Component {
 
+  setPage = (event) => {
+    const page = event.currentTarget.id
+    setActivePage(page)
+  }
 
-  // TODO: Refactor Menu component to use SideBar instead
-  // Calculates the hours remaining until the Mod 5 code freeze
-  //  codeFreeze = () => {
-  //   const codeFreeze = Date.parse('December 5, 2018 14:00:00')
-  //   const remainingTime = codeFreeze - Date.parse(new Date())
-  //   if (remainingTime <= 0) {
-  //     return <iframe src="https://giphy.com/embed/T08JhumnpKAI8" width="180" height="150" ></iframe>
-  //   }
-  //     let remainingHours = Math.round(remainingTime / 1000 / 60 / 60)
-  //     return <p>{remainingHours} Hours until code freeze</p>
-  // }
 
     render() {
       return (
@@ -33,34 +27,43 @@ class NavBar extends Component {
 
         <Menu.Item>
         <Image rounded
-        src={logo}
-        size='small'
-        spaced='right'
-        alt='The Spell Checker Logo'
+          src={logo}
+          size='small'
+          alt='The Spell Checker Logo'
+          className='logo'
         />
         </Menu.Item>
 
         <Menu.Item
-          active={true}
+          active={this.props.activePage === 'spells'}
+          onClick={this.setPage}
+          id="spells"
         >
           <Link to='/spells'>
           <Icon name='bolt' /> Spells
           </Link>
         </Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item
+          active={this.props.activePage === 'characters'}
+          onClick={this.setPage}
+          id="characters"
+        >
           <Link to='/characters'>
           <Icon name='universal access'/> Characters
           </Link>
         </Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item
+          active={this.props.activePage === 'dice'}
+          onClick={this.setPage}
+        >
           <Link to='/dice'>
           <Icon name='modx' /> Dice Roller
           </Link>
         </Menu.Item>
 
-        <Menu.Item>
+        <Menu.Item active={this.props.activePage === 'sessions'}>
           <Link to='/sessions'>
           <Icon name='trophy' /> Sessions
           </Link>
@@ -76,9 +79,9 @@ class NavBar extends Component {
         >
         <Header icon='cog' content="Logout of Spell Check?" />
         <Modal.Content>
-        <p>
-          Are you sure you want to log out of SpellCheck? Is something wrong with you?!
-        </p>
+          <p>
+            Are you sure you want to log out of SpellCheck? Is something wrong with you?!
+          </p>
         </Modal.Content>
         <Modal.Actions>
           <Button basic color='red' inverted>
@@ -86,9 +89,9 @@ class NavBar extends Component {
           </Button>
 
           <Button
-          color='green'
-          inverted
-          onClick={adapter.logout}
+            color='green'
+            inverted
+            onClick={adapter.logoutUser}
           >
             <Icon name='checkmark' /> Yes
           </Button>
@@ -100,8 +103,9 @@ class NavBar extends Component {
           src={window.sessionStorage.pic}
           spaced='right'
           circular
-          size='mini'
+          size='tiny'
           alt="Your user profile photo"
+          id='profile-pic'
           />
           {window.sessionStorage.username}
         </Menu.Item>

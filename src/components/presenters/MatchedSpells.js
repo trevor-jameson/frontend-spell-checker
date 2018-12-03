@@ -10,7 +10,7 @@ const MatchedSpells = props => {
 
   return (
     <Card.Group centered
-    itemsPerRow={2}
+    itemsPerRow={3}
     className='main-page'
     >
     {filteredSpells.map(spell => <SpellCard

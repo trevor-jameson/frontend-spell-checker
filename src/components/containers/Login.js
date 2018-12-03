@@ -82,7 +82,7 @@ export default class Login extends Component {
                   size='mini'
                   color='black'>
                     <Link to="/create-user">
-                      New to Spell Checker? Create a new profile and get playing!
+                      New to Spell Checker? Create a profile and get playing!
                     </Link>
                   </Message>
                 </div>

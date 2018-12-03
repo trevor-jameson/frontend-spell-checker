@@ -40,7 +40,7 @@ class Adapter {
       // The backend has no responsibility for logging out users while
       // using a JWT schema
       window.sessionStorage.removeItem('jwt')
-      window.location.href = ''
+      window.location.href = '/welcome'
     }
 
     createUser(body) {

@@ -6,4 +6,28 @@
   -o-background-size: cover;
   background-size: cover;
   height: 650px;
+  font-family: fantasy;
+  color: white;
+}
+
+#create-user-form {
+  margin-left: 30%;
+}
+
+#create-user-header {
+  font-family: fantasy;
+  color: white;
+  margin-bottom: 50px;
+  font-size: 3em;
+
+}
+
+#create-user-page label{
+  color: white;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#login-user-option {
+  opacity: 0.85;
 }

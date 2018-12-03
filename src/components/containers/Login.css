@@ -6,9 +6,25 @@
   -o-background-size: cover;
   background-size: cover;
   height: 650px;
+  font-family: fantasy;
+}
+
+#login-page label{
+  color: white;
+  font-size: 1.5em;
 }
 
 #page-header {
     color: white;
     font-size: 3em;
+    font-family: fantasy;
+    margin-bottom: 50px;
+}
+
+#profile-pic {
+  margin-left: 20px;
+}
+
+#create-user-option {
+  opacity: 0.80;
 }

@@ -7,7 +7,7 @@ const Welcome = () => {
   return (
     <Grid>
     <div id="welcome-screen">
-      <Grid.Column width={16}>
+      <Grid.Column>
         <div id="welcome-selector-box">
           <Segment padded inverted centered>
             <Header
