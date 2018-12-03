@@ -13,6 +13,7 @@ import CreateUser from './components/containers/CreateUser'
 
 // Presenter components
 import NoMatch from './components/presenters/NoMatch'
+import GuestUser from './components/presenters/GuestUser'
 import Welcome from './components/presenters/Welcome'
 import DiceRollerBox from './components/containers/DiceRollerBox'
 
@@ -26,12 +27,13 @@ class App extends Component {
         <Route path="/welcome" component={Welcome}/>
         <Route path="/login" component={Login}/>
         <Route path="/create-user" component={CreateUser}/>
-        {window.sessionStorage.jwt === undefined ? null :
-          <>
-          <Route path="/spells" component={SpellSelectionBox} />
-          <Route path="/characters" component={CharacterSelectionBox} />
-          <Route path="/dice" component={DiceRollerBox} />
-          </>
+        {window.sessionStorage.jwt === undefined ? <GuestUser/> :
+          <Switch>
+            <Route path="/spells" component={SpellSelectionBox} />
+            <Route path="/characters" component={CharacterSelectionBox} />
+            <Route path="/dice" component={DiceRollerBox} />
+            <Route component={NoMatch} />
+          </Switch>
         }
         <Route component={NoMatch} />
       </Switch>

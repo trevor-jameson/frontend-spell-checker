@@ -9,7 +9,7 @@ const MatchedSpells = props => {
   const filteredSpells = props.spells.filter(spell => spell.name.includes(props.searchText))
 
   return (
-    <Card.Group centered
+    <Card.Group 
     itemsPerRow={3}
     className='main-page'
     >

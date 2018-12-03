@@ -10,6 +10,12 @@ import codeFreeze from '../../utils/CodeFreeze'
 import './NavBar.css'
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      activePage: props.activePage
+    }
+  }
 
   setPage = (event) => {
     const page = event.currentTarget.id
@@ -36,8 +42,6 @@ class NavBar extends Component {
 
         <Menu.Item
           active={this.props.activePage === 'spells'}
-          onClick={this.setPage}
-          id="spells"
         >
           <Link to='/spells'>
           <Icon name='bolt' /> Spells
@@ -46,8 +50,6 @@ class NavBar extends Component {
 
         <Menu.Item
           active={this.props.activePage === 'characters'}
-          onClick={this.setPage}
-          id="characters"
         >
           <Link to='/characters'>
           <Icon name='universal access'/> Characters
@@ -56,14 +58,15 @@ class NavBar extends Component {
 
         <Menu.Item
           active={this.props.activePage === 'dice'}
-          onClick={this.setPage}
         >
           <Link to='/dice'>
           <Icon name='modx' /> Dice Roller
           </Link>
         </Menu.Item>
 
-        <Menu.Item active={this.props.activePage === 'sessions'}>
+        <Menu.Item
+          active={this.props.activePage === 'sessions'}
+        >
           <Link to='/sessions'>
           <Icon name='trophy' /> Sessions
           </Link>
@@ -107,7 +110,7 @@ class NavBar extends Component {
           alt="Your user profile photo"
           id='profile-pic'
           />
-          {window.sessionStorage.username}
+          {window.sessionStorage.firstname}
         </Menu.Item>
 
         </Menu>

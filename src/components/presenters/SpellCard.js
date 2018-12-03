@@ -11,8 +11,8 @@ const SpellCard = props => {
       content={props.spell.name}
       />
       <Card.Content>
-        Range: {props.spell.range}
-        <br/>Classes: {props.spell.classes}
+        Classes: {props.spell.classes}
+        <br/>Range: {props.spell.range}
         <br/>Casting Time: {props.spell.castingtime}
         <Truncate
           lines={4}
