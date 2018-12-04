@@ -1,16 +1,16 @@
 const classOptions = [
-  {key: 'Barbarian', value: 'Barbarian', text: 'Barbarian'},
-  {key: 'Bard', value: 'Bard', text: 'Bard'},
-  {key: 'Cleric', value: 'Cleric', text: 'Cleric'},
-  {key: 'Druid', value: 'Druid', text: 'Druid'},
-  {key: 'Fighter', value: 'Fighter', text: 'Fighter'},
-  {key: 'Monk', value: 'Monk', text: 'Monk'},
-  {key: 'Paladin', value: 'Paladin', text: 'Paladin'},
-  {key: 'Ranger', value: 'Ranger', text: 'Ranger'},
-  {key: 'Rogue', value: 'Rogue', text: 'Rogue'},
-  {key: 'Sorcerer', value: 'Sorcerer', text: 'Sorcerer'},
-  {key: 'Warlock', value: 'Warlock', text: 'Warlock'},
-  {key: 'Wizard', value: 'Wizard', text: 'Wizard'}
+  {key: 'Barbarian', value: 'Barbarian', text: 'Barbarian', name: 'barbarian'},
+  {key: 'Bard', value: 'Bard', text: 'Bard', name: 'bard'},
+  {key: 'Cleric', value: 'Cleric', text: 'Cleric', name: 'cleric'},
+  {key: 'Druid', value: 'Druid', text: 'Druid', name: 'druid'},
+  {key: 'Fighter', value: 'Fighter', text: 'Fighter', name: 'fighter'},
+  {key: 'Monk', value: 'Monk', text: 'Monk', name: 'monk'},
+  {key: 'Paladin', value: 'Paladin', text: 'Paladin', name: 'paladin'},
+  {key: 'Ranger', value: 'Ranger', text: 'Ranger', name: 'ranger'},
+  {key: 'Rogue', value: 'Rogue', text: 'Rogue', name: 'rogue'},
+  {key: 'Sorcerer', value: 'Sorcerer', text: 'Sorcerer', name: 'sorcerer'},
+  {key: 'Warlock', value: 'Warlock', text: 'Warlock', name: 'warlock'},
+  {key: 'Wizard', value: 'Wizard', text: 'Wizard', name: 'wizard'}
 ]
 
 const options20 = (() => {
@@ -20,8 +20,16 @@ const options20 = (() => {
  })
 })()
 
+const levelOptions = (() => {
+ const levelArr = [...Array(10).keys()]
+ return levelArr.map(score => {
+   return {key: score.toString(), value: score.toString(), text: score.toString()}
+ })
+})()
+
 const options = {
   classOptions,
+  levelOptions,
   options20
 }
 

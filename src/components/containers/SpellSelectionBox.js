@@ -18,11 +18,6 @@ class SpellSelectionBox extends Component {
   constructor() {
     super()
     this.state = {
-      text: '',
-      klass: null,
-      level: null,
-      school: null,
-      concen: null,
       matchedSpells: false
     }
   }
@@ -31,48 +26,47 @@ class SpellSelectionBox extends Component {
     this.props.fetchingSpells()
   }
 
-  onChange = (event) => {
-    // TODO: Why is event.target not finding the correct input element?
-    debugger
-    this.setState({[event.target.name]: event.target.value})
-  }
-
-  onClickSearch = (event) => {
-    event.preventDefault()
+  onSubmitSearch = (form) => {
     const spells = this.props.spells
 
-    const nameMatchedSpells = spells.filter(spell => {
-      return spell.name.toLowerCase().includes(this.state.text.toLowerCase())
-    })
+    // const nameMatchedSpells = spells.filter(spell => {
+    //   return spell.name.toLowerCase().includes(form.name.toLowerCase())
+    // })
 
-    const matchedSpells = this.applyFilters(nameMatchedSpells)
+    const matchedSpells = this.applyFilters(spells, form)
 
     this.setState({matchedSpells: matchedSpells})
   }
 
-  applyFilters = (spells) => {
-    if (this.state.klass !== null) {
-      spells = spells.filter(spell => {
-        debugger
-        spell.klasses.toLowerCase().includes(this.state.klass)
-      })
-    }
-    // if (this.state. !== null) {
-    //   spells = spells.filter(spell => {
-    //     spell..toLowerCase().includes(this.state.)
-    //   })
-    // }
-    // if (this.state. !== null) {
-    //   spells = spells.filter(spell => {
-    //     spell..toLowerCase().includes(this.state.)
-    //   })
-    // }
-    // if (this.state. !== null) {
-    //   spells = spells.filter(spell => {
-    //     spell..toLowerCase().includes(this.state.)
-    //   })
-    // }
-    return spells
+  applyFilters = (spells, form) => {
+
+    return spells.filter(spell => {
+      for (const key in form) {
+        if (form[key]) {
+          switch (typeof form[key]) {
+            case 'string':
+            if (!(spell[key].toLowerCase().includes(form[key]))) {
+              return false
+            }
+            break;
+            case 'number':
+            if (spell[key] !== form[key]) {
+              return false
+            }
+            break;
+            case 'boolean':
+            if (spell[key] !== form[key]) {
+              return false
+            }
+            break;
+            default:
+            console.log('bad key type in form')
+            break;
+          }
+        }
+      }
+      return true
+    })
   }
 
   render() {
@@ -84,7 +78,7 @@ class SpellSelectionBox extends Component {
               <Grid.Row centered>
                 <Grid.Column width={8} centered>
                   <SpellSearchBar
-                    onClickSearch={this.onClickSearch}
+                    onSubmitSearch={this.onSubmitSearch}
                     onChange={this.onChange}
                   />
                   <Divider clearing />

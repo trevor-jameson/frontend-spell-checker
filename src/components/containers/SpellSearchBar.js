@@ -1,51 +1,85 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Input, Form, Button, Checkbox } from 'semantic-ui-react'
 
 import options from '../../utils/GameOptions'
 
-const SpellSearchBar = (props) => (
-  <Form
-    onSubmit={props.onClickSearch}
-  >
-    <Form.Input
-      name='text'
-      type="text"
+class SpellSearchBar extends Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      klasses: null,
+      level: null,
+      school: null,
+      concen: null
+    }
+  }
+
+  onChange = (event) => {
+    this.setState({[event.target.name]: event.target.value})
+  }
+
+  onChangeDropdown = (event) => {
+    const dropdown = event.target.parentElement.parentElement
+    this.setState({[dropdown.id]: event.target.innerText.toLowerCase()})
+  }
+
+  onChangeToggle = (event) => {
+    this.setState({[event.target.id]: event.target.checked})
+  }
+
+  submitSearch = (event) => {
+    event.preventDefault()
+    this.props.onSubmitSearch(this.state)
+  }
+
+  render() {
+    debugger
+    return (
+      <Form
+        onSubmit={this.submitSearch}
+      >
+      <Form.Input
+      name='name'
+      type="name"
       placeholder="Search"
-      onChange={props.onChange}
+      onChange={this.onChange}
       action={
         <Button
-          icon='search'
-          type="submit"
+        icon='search'
+        type="submit"
         />
       }
-    />
-    <Form.Group widths='equal'>
+      />
+      <Form.Group widths='equal'>
       <Form.Dropdown fluid search selection
-        name='klass'
+        id='klasses'
         label='Class'
         placeholder='Select Class'
         options={options.classOptions}
-        onChange={props.onChange}
+        onChange={this.onChangeDropdown}
       />
       <Form.Dropdown selection compact search
-        name='level'
+        id='level'
         label='Level'
         placeholder='Select Level'
-        options={options.options20}
-        onChange={props.onChange}
+        options={options.levelOptions}
+        onChange={this.onChangeDropdown}
       />
       <Form.Input
         name='school'
         label='School'
-        onChange={props.onChange}
+        onChange={this.onChange}
       />
       <Form.Checkbox toggle
-        name='concen'
+        id='concen'
         label='Concentrate?'
-        onChange={props.onChange}
+        onChange={this.onChangeToggle}
       />
-    </Form.Group>
-  </Form>
-);
+      </Form.Group>
+      </Form>
+    )
+  }
+}
 
 export default SpellSearchBar
