@@ -12,7 +12,6 @@ class NoMatch extends Component {
     // Find and hide rows containing navbar and user-pages
     const navbar = document.getElementById('navbar-row')
     navbar.style.display = 'none'
-
   }
 
   render() {

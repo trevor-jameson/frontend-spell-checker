@@ -18,7 +18,11 @@ class SpellSelectionBox extends Component {
   constructor() {
     super()
     this.state = {
-      filters: [],
+      text: '',
+      klass: null,
+      level: null,
+      school: null,
+      concen: null,
       matchedSpells: false
     }
   }
@@ -27,15 +31,18 @@ class SpellSelectionBox extends Component {
     this.props.fetchingSpells()
   }
 
-  onClickSearch = (event) => {
-    //Whatever the text is supposed to be
+  onChange = (event) => {
+    // TODO: Why is event.target not finding the correct input element?
     debugger
-    // const text = event.target.
-    const text = ''
+    this.setState({[event.target.name]: event.target.value})
+  }
+
+  onClickSearch = (event) => {
+    event.preventDefault()
     const spells = this.props.spells
 
     const nameMatchedSpells = spells.filter(spell => {
-      return spell.name.toLowerCase().includes(text.toLowerCase())
+      return spell.name.toLowerCase().includes(this.state.text.toLowerCase())
     })
 
     const matchedSpells = this.applyFilters(nameMatchedSpells)
@@ -44,6 +51,27 @@ class SpellSelectionBox extends Component {
   }
 
   applyFilters = (spells) => {
+    if (this.state.klass !== null) {
+      spells = spells.filter(spell => {
+        debugger
+        spell.klasses.toLowerCase().includes(this.state.klass)
+      })
+    }
+    // if (this.state. !== null) {
+    //   spells = spells.filter(spell => {
+    //     spell..toLowerCase().includes(this.state.)
+    //   })
+    // }
+    // if (this.state. !== null) {
+    //   spells = spells.filter(spell => {
+    //     spell..toLowerCase().includes(this.state.)
+    //   })
+    // }
+    // if (this.state. !== null) {
+    //   spells = spells.filter(spell => {
+    //     spell..toLowerCase().includes(this.state.)
+    //   })
+    // }
     return spells
   }
 
@@ -57,8 +85,9 @@ class SpellSelectionBox extends Component {
                 <Grid.Column width={8} centered>
                   <SpellSearchBar
                     onClickSearch={this.onClickSearch}
-                />
-                <Divider clearing />
+                    onChange={this.onChange}
+                  />
+                  <Divider clearing />
                 </Grid.Column>
               </Grid.Row>
 
