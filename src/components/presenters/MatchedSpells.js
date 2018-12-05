@@ -9,12 +9,12 @@ const MatchedSpells = props => {
   return (
     <>
       <Card.Group
-      itemsPerRow={3}
-      id='matched-spells'
+        itemsPerRow={3}
+        id='matched-spells'
       >
-      {props.spells.map(spell => <SpellCard
-        key={spell.id}
-        spell={spell}
+        {props.spells.map(spell => <SpellCard
+          key={spell.id}
+          spell={spell}
         />)}
       </Card.Group>
     </>
