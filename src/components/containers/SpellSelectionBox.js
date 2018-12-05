@@ -4,7 +4,7 @@ import { mapSpellsToProps } from '../../redux/mapStateToProps'
 import loading from '../presenters/LoadingScreen'
 
 import { connect } from 'react-redux'
-import { Grid, Header, Image, Divider } from 'semantic-ui-react'
+import { Grid, Header, Image, Divider, Message } from 'semantic-ui-react'
 
 import './SpellSelectionBox.css'
 import book from '../../images/mystic_book_by_adalbertofsouza_d2xvmui-pre.jpg'

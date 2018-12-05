@@ -1,10 +1,10 @@
 import React, { Fragment, Component } from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 
-import NavBar from '../presenters/NavBar'
 import adapter from '../../utils/Adapter'
 import dice from '../../utils/DiceRoller'
 import DiceRollingInterface from '../presenters/DiceRollingInterface'
+import DiceRollResults from '../presenters/DiceRollResults'
 
 class DiceRollerBox extends Component {
   constructor() {
@@ -12,14 +12,24 @@ class DiceRollerBox extends Component {
     this.state = {
       resultList: {},
       result: 0,
-      dice: 1,
-      times: 1
     }
   }
 
-  rollTheDice = () => {
-    const result = dice.roll(this.state.times, this.state.sides)
-    // Also need to set to result list
+  rollTheDice = (form) => {
+    const { adv, disadv, sides, times } = form
+    let result
+
+    if (adv) {
+      result = dice.rollAdvantage(times, sides)
+    } else if (disadv) {
+      result = dice.rollDisadvantage(times, sides)
+    } else {
+      result = dice.roll(times, sides)
+    }
+    debugger
+
+
+    // TODO: Set the result list
 
     this.setState({result: result})
   }
@@ -28,8 +38,13 @@ class DiceRollerBox extends Component {
     return (
       <>
         <Grid>
-          <Grid.Column floated={'right'} width={10}>
-            <DiceRollingInterface result={this.state.result} roll={this.rollTheDice} />
+          <Grid.Column  width={10}>
+            <Grid.Row centered>
+              <DiceRollResults result={this.state.result} resultList={this.state.resultList} />
+            </Grid.Row>
+            <Grid.Row centered>
+              <DiceRollingInterface rollTheDice={this.rollTheDice} />
+            </Grid.Row>
           </Grid.Column>
         </Grid>
       </>

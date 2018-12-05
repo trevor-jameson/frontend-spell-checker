@@ -46,7 +46,7 @@ class SpellSearchBar extends Component{
       >
       <Form.Input
       name='name'
-      type="name"
+      type="text"
       placeholder="Search"
       onChange={this.onChange}
       action={
@@ -68,7 +68,7 @@ class SpellSearchBar extends Component{
         id='lvl'
         label='Level'
         placeholder='Select Level'
-        options={options.levelOptions}
+        options={options.spellLevelOptions}
         onChange={this.onChangeDropdown}
       />
       <Form.Dropdown selection compact search

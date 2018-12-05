@@ -39,7 +39,7 @@ const options20 = (() => {
  })
 })()
 
-const levelOptions = (() => {
+const spellLevelOptions = (() => {
  const levelArr = [...Array(10).keys()]
  return levelArr.map(score => {
    return {key: score.toString(), value: score.toString(), text: score.toString()}
@@ -50,7 +50,7 @@ const options = {
   classOptions,
   spellClassOptions,
   spellSchoolOptions,
-  levelOptions,
+  spellLevelOptions,
   options20
 }
 

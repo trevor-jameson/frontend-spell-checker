@@ -1,6 +1,7 @@
 const roll = (times, sides) => {
 
   // Check whether args are both numbers
+
   if (typeof times === 'number' && typeof sides === 'number') {
 
     // Create array length of times rolled and sides
@@ -20,12 +21,13 @@ const roll = (times, sides) => {
 
 const rollAdvantage = (times, sides) => {
   // Pick the highest of the two rolls
-  return Math.max([roll(times, sides), roll(times, sides)])
+  debugger
+  return Math.max(roll(times, sides), roll(times, sides))
 }
 
 const rollDisadvantage = (times, sides) => {
   // Pick the lowest of the two rolls
-  return Math.min([roll(times, sides), roll(times, sides)])
+  return Math.min(roll(times, sides), roll(times, sides))
 }
 
 // NOTE: There are 6 ability scores (AKA stats) assigned from randomly calculated values.

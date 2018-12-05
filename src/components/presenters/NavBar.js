@@ -8,7 +8,7 @@ import './NavBar.css'
 
 class NavBar extends Component {
 
-  state = { activePage: 'spells'}
+  state = { activePage: null}
 
   setPage = (e, { name }) => this.setState({ activePage: name })
 

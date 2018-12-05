@@ -20,7 +20,7 @@ class UserChars extends Component {
 
     return (
       <>
-        <Menu vertical tabular>
+        <Menu vertical tabular compact>
           {this.props.chars.map(char => {
             return <CharCard
               char={char}

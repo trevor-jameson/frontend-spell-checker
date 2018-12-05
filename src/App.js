@@ -33,7 +33,7 @@ class App extends Component {
               <Grid.Row id="navbar-row">
                 <NavBar />
               </Grid.Row>
-              <Grid.Row id="user-pages-row">
+              <Grid.Row id="user-pages-row" centered>
                 <Switch>
                   <Route path="/spells" component={SpellSelectionBox} />
                   <Route path="/characters" component={CharacterSelectionBox} />
