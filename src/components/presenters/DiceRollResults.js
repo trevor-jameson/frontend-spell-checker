@@ -12,13 +12,9 @@ const DiceRollResults = props => {
           src={diceCutout}
           size='medium'
           />
-          <br/>
-          <br/>
-          <p className='roll-result'>
+          <p id='roll-result'>
             {props.result}
           </p>
-          <br/>
-          <br/>
         </div>
       </>
     )

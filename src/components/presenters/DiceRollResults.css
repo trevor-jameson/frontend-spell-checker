@@ -1,9 +1,23 @@
 #dice-cutout {
   vertical-align: middle;
+  z-index: -1
 }
 
-.roll-result {
+#roll-result {
   position: absolute;
   font-size: 3em;
   font-family: 'Stalemate', 'cursive';
+  margin-left: 76px;
+  margin-top: -225px;
+  z-index: 1;
+}
+
+#this-app-is-brought-to-you-by-the-letter-d {
+  font-family: fantasy;
+  font-size: 4em;
+  margin-top: 40px
+}
+
+.dice-roll-form {
+  margin-top: 3vw;
 }

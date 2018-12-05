@@ -51,7 +51,7 @@ class DiceRollingInterface extends Component {
               label='Times'
               onChange={this.onChangeNum}
             />
-            D
+            <div id='this-app-is-brought-to-you-by-the-letter-d'>d</div>
             <Form.Input fluid
               name='sides'
               label='Sides'
