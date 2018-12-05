@@ -17,8 +17,7 @@ class NavBar extends Component {
       const { activePage } = this.state
 
       return (
-        <Menu
-        inverted={true}
+        <Menu inverted
         widths={8}
         className='navbar'
         >

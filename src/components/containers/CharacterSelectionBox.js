@@ -4,8 +4,11 @@ import { Grid } from 'semantic-ui-react'
 
 import NavBar from '../presenters/NavBar'
 import CreateChar from './CreateChar'
+import UserChars from '../presenters/UserChars'
+
 import adapter from '../../utils/Adapter'
 import loading from '../presenters/LoadingScreen'
+
 import { fetchingChars } from '../../redux/actions/charActions'
 import { mapCharsToProps } from '../../redux/mapStateToProps'
 
@@ -19,9 +22,9 @@ class CharacterSelectionBox extends Component {
     return (
       <>
         <Grid>
-          {this.props.isLoadingChars ? loading :
+          {(this.props.isLoadingChars) ? loading :
             <Grid.Column floated={'right'} width={10}>
-
+              <UserChars chars={this.props.chars} />
             </Grid.Column>
           }
         </Grid>

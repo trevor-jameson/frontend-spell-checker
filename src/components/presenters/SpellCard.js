@@ -12,10 +12,15 @@ const SpellCard = props => {
       />
       <Card.Content>
         Classes: {props.spell.klasses}
+        <br/>Level: {props.spell.lvl}
         <br/>Range: {props.spell.range}
         <br/>Casting Time: {props.spell.castingtime}
+        <br/>Components: {props.spell.components}
+        <br/>Duration {props.spell.duration}
+        <br/>Concentration: {props.spell.concentration ? 'Yes' : 'No'}
+        <br/>High Level: {props.spell.highlvl}
         <Truncate
-          lines={4}
+          lines={5}
           ellipses={'...'}
         >
           <br/>Description: {props.spell.desc}

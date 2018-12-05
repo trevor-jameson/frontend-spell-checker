@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Form, Button, Checkbox } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 import options from '../../utils/GameOptions'
 
@@ -7,11 +7,11 @@ class SpellSearchBar extends Component{
   constructor(props) {
     super(props)
     this.state = {
-      name: '',
+      name: null,
       klasses: null,
-      level: null,
+      lvl: null,
       school: null,
-      concen: null
+      concentration: null
     }
   }
 
@@ -21,7 +21,13 @@ class SpellSearchBar extends Component{
 
   onChangeDropdown = (event) => {
     const dropdown = event.target.parentElement.parentElement
-    this.setState({[dropdown.id]: event.target.innerText.toLowerCase()})
+    let val = event.target.innerText
+
+    // innerText is always a string, but search function expects ints for lvls
+    if (val.match(/\d+/)) {
+      val = Number(val)
+    }
+    this.setState({[dropdown.id]: val})
   }
 
   onChangeToggle = (event) => {
@@ -34,7 +40,6 @@ class SpellSearchBar extends Component{
   }
 
   render() {
-    debugger
     return (
       <Form
         onSubmit={this.submitSearch}
@@ -56,24 +61,26 @@ class SpellSearchBar extends Component{
         id='klasses'
         label='Class'
         placeholder='Select Class'
-        options={options.classOptions}
+        options={options.spellClassOptions}
         onChange={this.onChangeDropdown}
       />
       <Form.Dropdown selection compact search
-        id='level'
+        id='lvl'
         label='Level'
         placeholder='Select Level'
         options={options.levelOptions}
         onChange={this.onChangeDropdown}
       />
-      <Form.Input
-        name='school'
+      <Form.Dropdown selection compact search
+        id='school'
         label='School'
-        onChange={this.onChange}
+        placeholder='Select School'
+        onChange={this.onChangeDropdown}
+        options={options.spellSchoolOptions}
       />
       <Form.Checkbox toggle
-        id='concen'
-        label='Concentrate?'
+        id='concentration'
+        label='Concentration'
         onChange={this.onChangeToggle}
       />
       </Form.Group>
