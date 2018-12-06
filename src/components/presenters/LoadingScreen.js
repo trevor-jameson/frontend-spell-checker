@@ -5,7 +5,7 @@ const loading = (
   <>
     <Segment className={'loadEvent'}>
       <Dimmer active>
-        <Loader size='large'>Loading</Loader>
+        <Loader size={'massive'}>Loading</Loader>
         </Dimmer>
     </Segment>
   </>
