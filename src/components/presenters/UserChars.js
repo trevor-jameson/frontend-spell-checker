@@ -1,7 +1,9 @@
 import React, { Fragment, Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Grid } from 'semantic-ui-react'
 
+import CharMenuItem from './CharMenuItem'
 import CharCard from './CharCard'
+import CreateChar from '../containers/CreateChar'
 
 
 class UserChars extends Component {
@@ -13,6 +15,12 @@ class UserChars extends Component {
     }
   }
 
+  findActiveChar = () => {
+    return this.props.chars.find(char => {
+      return char.name === this.state.activeItem
+    })
+  }
+
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
@@ -20,15 +28,29 @@ class UserChars extends Component {
 
     return (
       <>
-        <Menu vertical tabular compact>
-          {this.props.chars.map(char => {
-            return <CharCard
-              char={char}
-              activeItem={activeItem}
-              itemClick={this.handleItemClick}
-            />
-          })}
-        </Menu>
+        <Grid.Row
+         columns={2}>
+          <Grid.Column>
+            <Menu vertical tabular compact>
+              {this.props.chars.map(char => {
+                return <CharMenuItem
+                  char={char}
+                  activeItem={activeItem}
+                  itemClick={this.handleItemClick}
+                />
+              })}
+              <Menu.Item>
+                <CreateChar />
+              </Menu.Item>
+            </Menu>
+          </Grid.Column>
+          <Grid.Column>
+            {this.state.activeItem === undefined ? null :
+              <CharCard char={this.findActiveChar()}/>
+            }
+          </Grid.Column>
+        </Grid.Row>
+
       </>
     )
   }

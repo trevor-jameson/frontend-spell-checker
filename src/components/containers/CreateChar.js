@@ -55,10 +55,10 @@ export default class CreateChar extends Component {
 
   render() {
     return(
-      <Modal trigger={<Button>Create Character</Button>}>
+      <Modal trigger={<Button>Create Character</Button>} >
         <div id="create-char-page">
         <Grid textAlign="center" style={{ height: '100%' }}>
-          <Grid.Column style={{ maxWidth: 550 }}>
+          <Grid.Column style={{ maxWidth: 550 }} centered width={6}>
             <Header as='h2' textAlign='center'>
               Create your new character
             </Header>
@@ -104,7 +104,6 @@ export default class CreateChar extends Component {
                     options={options.options20}
                   />
                   </Grid.Column>
-                  <Divider vertical></Divider>
                   <Grid.Column>
 
                   <Form.Dropdown selection compact search

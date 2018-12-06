@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 
 import NavBar from '../presenters/NavBar'
-import CreateChar from './CreateChar'
 import UserChars from '../presenters/UserChars'
 
 import adapter from '../../utils/Adapter'
@@ -23,9 +22,7 @@ class CharacterSelectionBox extends Component {
       <>
         <Grid>
           {(this.props.isLoadingChars) ? loading :
-            <Grid.Column floated={'right'} width={10}>
               <UserChars chars={this.props.chars} />
-            </Grid.Column>
           }
         </Grid>
       </>

@@ -2,10 +2,22 @@ import React from 'react'
 import { Card, Header } from 'semantic-ui-react'
 import Truncate from 'react-truncate'
 
+// TODO: Fix method for replacing components shorthand with full words
+// const formatSpellComponents = (components) => {
+//   let formatted
+//   formatted = components.replace(/V/, 'Verbal')
+//   console.log(formatted)
+//   formatted = components.replace(/S/, 'Somatic')
+//   console.log(formatted)
+//   formatted = components.replace(/M/, 'Material')
+//   console.log(formatted)
+//   debugger
+//   return formatted
+// }
+
 const SpellCard = props => {
   const { name, klasses, lvl, range, castingtime, components, duration,
     concentration, highlvl, desc} = props.spell
-
 
   return (
     <Card raised>

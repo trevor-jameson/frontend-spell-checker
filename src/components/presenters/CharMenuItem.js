@@ -1,7 +1,7 @@
 import React, { Fragement } from 'react'
 import { Menu } from 'semantic-ui-react'
 
-const CharCard = props => {
+const CharMenuItem = props => {
   const { char, activeItem, itemClick } = props
 
   return (
@@ -17,4 +17,4 @@ const CharCard = props => {
   )
 }
 
-export default CharCard
+export default CharMenuItem

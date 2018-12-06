@@ -1,18 +1,19 @@
-import React, { Fragement } from 'react'
-import { Menu } from 'semantic-ui-react'
+import React, { Fragment } from 'react'
+import { Menu, Card } from 'semantic-ui-react'
 
 const CharCard = props => {
-  const { char, activeItem, itemClick } = props
-  
+  const { name, notes, health, abilities_set, char_klasses, klass_levels, spells } = props.char
+
   return (
     <>
-    <Menu.Item
-      name={char.name}
-      active={activeItem === char.name}
-      onClick={itemClick}
-    >
-      {char.name}
-    </Menu.Item>
+      <Card>
+        <Card.Header as='h1'>
+          {name}
+        </Card.Header>
+        <Card.Content>
+          Health: {health}
+        </Card.Content>
+      </Card>
     </>
   )
 }
