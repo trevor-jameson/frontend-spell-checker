@@ -39,7 +39,7 @@ class SpellSelectionBox extends Component {
       for (const key in form) {
         if (form[key]) {
           // string case statement breaking after irregular number of same-page searches
-          console.log(form, spell, form[key], spell[key])
+          // console.log(form, spell, form[key], spell[key])
           switch (typeof form[key]) {
             case 'string':
             if (!(spell[key].toLowerCase().includes(form[key].toLowerCase()))) {
