@@ -48,7 +48,7 @@ export default class CreateUser extends Component {
         window.sessionStorage.setItem('user', JSON.stringify(json['user']))
 
         // redirect to '/spells'
-        window.location.href = 'http://localhost:3000/spells'
+        window.location.href = adapter.FRONTEND_URL + '/spells'
       } else {
         // TODO: How to handle error messages from backend?
         alert('Invalid User Credentials')
