@@ -6,7 +6,7 @@ import './DiceRollResults.css'
 
 const DiceRollResults = props => {
     return (
-      <>
+      <Fragment>
         <div id="dice-cutout">
           <Image
           src={diceCutout}
@@ -16,7 +16,7 @@ const DiceRollResults = props => {
             {props.result}
           </p>
         </div>
-      </>
+      </Fragment>
     )
   }
 

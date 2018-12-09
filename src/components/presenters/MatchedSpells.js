@@ -1,13 +1,13 @@
 // Add MatchedSpells as dumb, stateless component, with grid for displaying spell cards
 
-import React from 'react'
+import React, { Fragment }from 'react'
 import { Card } from 'semantic-ui-react'
 import SpellCard from './SpellCard'
 
 // Import Semantic-UI
 const MatchedSpells = props => {
   return (
-    <>
+    <Fragment>
       <Card.Group
         itemsPerRow={3}
         id='matched-spells'
@@ -17,7 +17,7 @@ const MatchedSpells = props => {
           spell={spell}
         />)}
       </Card.Group>
-    </>
+    </Fragment>
   )
 }
 

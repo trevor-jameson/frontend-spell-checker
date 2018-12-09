@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
-import { Menu, Card } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
 const CharCard = props => {
   const { name, notes, health, abilities_set, char_klasses, klass_levels, spells, klasses } = props.char
   debugger
   return (
-    <>
+    <Fragment>
       <Card>
         <Card.Header as='h1'>
           {name} - {klasses.map(klass => klass.name)}
@@ -16,7 +16,7 @@ const CharCard = props => {
           {char_klasses.map}
         </Card.Content>
       </Card>
-    </>
+    </Fragment>
   )
 }
 

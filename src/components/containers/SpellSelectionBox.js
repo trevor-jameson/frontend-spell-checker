@@ -4,7 +4,7 @@ import { mapSpellsToProps } from '../../redux/mapStateToProps'
 import loading from '../presenters/LoadingScreen'
 
 import { connect } from 'react-redux'
-import { Grid, Header, Image, Divider, Message } from 'semantic-ui-react'
+import { Grid, Header, Image, Divider } from 'semantic-ui-react'
 
 import './SpellSelectionBox.css'
 import book from '../../images/mystic_book_by_adalbertofsouza_d2xvmui-pre.jpg'
@@ -68,12 +68,12 @@ class SpellSelectionBox extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <Grid>
           {this.props.isLoadingSpells ? loading :
-            <>
+            <Fragment>
               <Grid.Row centered>
-                <Grid.Column width={8} centered>
+                <Grid.Column width={8}>
                   <SpellSearchBar
                     onSubmitSearch={this.onSubmitSearch}
                     onChange={this.onChange}
@@ -103,10 +103,10 @@ class SpellSelectionBox extends Component {
                   spells={this.state.matchedSpells ? this.state.matchedSpells : this.props.spells}
                 />
               </Grid.Row>
-            </>
+            </Fragment>
           }
         </Grid>
-      </>
+      </Fragment>
     )
   }
 }

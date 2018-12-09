@@ -1,7 +1,6 @@
 import React, { Fragment, Component } from 'react'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
-import adapter from '../../utils/Adapter'
 import dice from '../../utils/DiceRoller'
 import DiceRollingInterface from '../presenters/DiceRollingInterface'
 import DiceRollResults from '../presenters/DiceRollResults'
@@ -36,7 +35,7 @@ class DiceRollerBox extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <Grid>
           <Grid.Column  width={10}>
             <Grid.Row centered>
@@ -47,7 +46,7 @@ class DiceRollerBox extends Component {
             </Grid.Row>
           </Grid.Column>
         </Grid>
-      </>
+      </Fragment>
     )
   }
 }

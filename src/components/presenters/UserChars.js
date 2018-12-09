@@ -27,7 +27,7 @@ class UserChars extends Component {
     const { activeItem } = this.state
 
     return (
-      <>
+      <Fragment>
         <Grid.Row
          columns={2}>
           <Grid.Column>
@@ -51,7 +51,7 @@ class UserChars extends Component {
           </Grid.Column>
         </Grid.Row>
 
-      </>
+      </Fragment>
     )
   }
 }

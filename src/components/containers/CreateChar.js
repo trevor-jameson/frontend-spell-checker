@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Button, Form, Grid, Column, Header, Modal, Checkbox, Divider } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Modal, Checkbox } from 'semantic-ui-react'
 
-import dice from '../../utils/DiceRoller'
 import adapter from '../../utils/Adapter'
 import options from '../../utils/GameOptions'
 

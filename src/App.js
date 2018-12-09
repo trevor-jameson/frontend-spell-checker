@@ -1,5 +1,5 @@
 // External Framework Components
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import { Grid } from 'semantic-ui-react'
 import './App.css';

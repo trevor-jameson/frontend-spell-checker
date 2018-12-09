@@ -2,10 +2,8 @@ import React, { Fragment, Component } from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'semantic-ui-react'
 
-import NavBar from '../presenters/NavBar'
 import UserChars from '../presenters/UserChars'
 
-import adapter from '../../utils/Adapter'
 import loading from '../presenters/LoadingScreen'
 
 import { fetchingChars } from '../../redux/actions/charActions'
@@ -19,13 +17,13 @@ class CharacterSelectionBox extends Component {
 
   render() {
     return (
-      <>
+      <Fragment>
         <Grid>
           {(this.props.isLoadingChars) ? loading :
               <UserChars chars={this.props.chars} />
           }
         </Grid>
-      </>
+      </Fragment>
     )
   }
 }

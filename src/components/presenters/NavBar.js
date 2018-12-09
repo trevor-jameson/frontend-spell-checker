@@ -3,7 +3,6 @@ import { Menu, Image, Icon, Header, Button, Modal } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/SpellCheckerLogo.png'
 import adapter from '../../utils/Adapter'
-import codeFreeze from '../../utils/CodeFreeze'
 import './NavBar.css'
 
 class NavBar extends Component {

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Button, Form, Label } from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 class DiceRollingInterface extends Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class DiceRollingInterface extends Component {
 
   render() {
     return (
-        <>
+        <Fragment>
           <Form
             widths='equal'
             className='dice-roll-form'
@@ -80,7 +80,7 @@ class DiceRollingInterface extends Component {
             content='Roll'
           />
           </Form>
-        </>
+        </Fragment>
       )
     }
   }
