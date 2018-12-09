@@ -57,21 +57,21 @@ class SpellSearchBar extends Component{
       }
       />
       <Form.Group widths='equal'>
-      <Form.Dropdown fluid search selection
+      <Form.Dropdown fluid search selection clearable
         id='klasses'
         label='Class'
         placeholder='Select Class'
         options={options.spellClassOptions}
         onChange={this.onChangeDropdown}
       />
-      <Form.Dropdown selection compact search
+      <Form.Dropdown selection compact search clearable
         id='lvl'
         label='Level'
         placeholder='Select Level'
         options={options.spellLevelOptions}
         onChange={this.onChangeDropdown}
       />
-      <Form.Dropdown selection compact search
+      <Form.Dropdown selection compact search clearable
         id='school'
         label='School'
         placeholder='Select School'
