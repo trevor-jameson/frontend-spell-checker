@@ -32,7 +32,7 @@ export default class CreateChar extends Component {
     event.preventDefault()
 
     // Method not yet defined
-    adapter.createChar({
+    adapter.post('characters', {
       char: {
         name: this.state.name,
         class: this.state.class,

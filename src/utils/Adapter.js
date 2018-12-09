@@ -18,6 +18,19 @@ class Adapter {
       .then(res => res.json())
   }
 
+  post(endpoint, body) {
+    return fetch(`${this.BACKEND_URL}/${endpoint}`, {
+      method: "POST",
+      headers: {
+        'Authorization': window.sessionStorage.getItem('jwt'),
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => res.json())
+  }
+
   loginUser(body) {
     return fetch(`${this.BACKEND_URL}/login`, {
       method: "POST",

@@ -32,11 +32,12 @@ class UserChars extends Component {
          columns={2}>
           <Grid.Column>
             <Menu vertical tabular compact>
-              {this.props.chars.map(char => {
+              {this.props.chars.map((char, ind) => {
                 return <CharMenuItem
                   char={char}
                   activeItem={activeItem}
                   itemClick={this.handleItemClick}
+                  key={ind}
                 />
               })}
               <Menu.Item>

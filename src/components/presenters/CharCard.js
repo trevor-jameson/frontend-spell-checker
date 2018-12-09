@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react'
 
 const CharCard = props => {
   const { name, notes, health, abilities_set, char_klasses, klass_levels, spells, klasses } = props.char
-  debugger
+
   return (
     <Fragment>
       <Card>
