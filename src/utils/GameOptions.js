@@ -27,24 +27,36 @@ const spellClassOptions = [
 const spellSchoolOptions = (() => {
   const schools = ['Abjuration', 'Conjuration', 'Divination', 'Enchantment',
   'Evocation', 'Illusion', 'Necromancy', 'Transmutation', 'Universal']
-  return schools.map(school => {
+  let schoolsArr = schools.map(school => {
     return {key: school, value: school, text: school, name: school.toLowerCase()}
   })
+  return schoolsArr
 })()
 
 const options20 = (() => {
  const arr20 = [...Array(21).keys()].slice(1)
- return arr20.map(score => {
+ let optionsArr = arr20.map(score => {
    return {key: score.toString(), value: score.toString(), text: score.toString()}
  })
+ return optionsArr
 })()
 
 const spellLevelOptions = (() => {
- const levelArr = [...Array(10).keys()]
- return levelArr.map(score => {
+ const baseKeys = [...Array(10).keys()]
+
+ let levelArr = baseKeys.map(score => {
    return {key: score.toString(), value: score.toString(), text: score.toString()}
  })
+
+ // Cantrips have the value 0 but should be displayed as Cantrips in the dropdown
+ levelArr[0] = {key: '0', value: '0', text: 'Cantrip'}
+ return levelArr
 })()
+
+// Adds null field to dropdown
+// function addNull(arr) {
+//   return arr.unshift({key: 'none', value: null, text: ' k'})
+// }
 
 const options = {
   classOptions,
