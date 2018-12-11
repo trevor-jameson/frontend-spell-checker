@@ -16,7 +16,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 650px;
+  height: 100vw;
   top: 0;
   right: 0;
   position: fixed;
