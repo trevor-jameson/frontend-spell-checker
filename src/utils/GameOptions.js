@@ -53,11 +53,6 @@ const spellLevelOptions = (() => {
  return levelArr
 })()
 
-// Adds null field to dropdown
-// function addNull(arr) {
-//   return arr.unshift({key: 'none', value: null, text: ' k'})
-// }
-
 const options = {
   classOptions,
   spellClassOptions,

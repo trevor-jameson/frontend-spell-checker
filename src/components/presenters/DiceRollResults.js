@@ -13,7 +13,7 @@ const DiceRollResults = props => {
           size='medium'
           />
           <p id='roll-result'>
-            {props.result}
+            {isNaN(props.result) ? 0 : props.result}
           </p>
         </div>
       </Fragment>

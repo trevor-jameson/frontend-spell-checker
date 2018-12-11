@@ -37,15 +37,15 @@ class DiceRollerBox extends Component {
     return (
       <Fragment>
         <Grid>
-          <Grid.Column  width={10}>
-            <Grid.Row centered>
+          <Grid.Row centered>
+            <Grid.Column  width={8}>
               <DiceRollResults result={this.state.result} resultList={this.state.resultList} />
-            </Grid.Row>
-            <Grid.Row centered>
+            </Grid.Column>
+            <Grid.Column  width={8}>
               <DiceRollingInterface rollTheDice={this.rollTheDice} />
+            </Grid.Column>
             </Grid.Row>
-          </Grid.Column>
-        </Grid>
+          </Grid>
       </Fragment>
     )
   }
