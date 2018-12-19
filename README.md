@@ -1,7 +1,7 @@
 # Welcome to Spell Checker
 Spell Checker is a roleplaying game management app, which draws on the Dungeons & Dragons game API maintained by Adrian Padua and authorized through Wizards of the Coasts Open Gaming License. The app is a work in progress and is not intended to profit the creator.
 
-SpellChecker-Screenshot.png
+![](SpellChecker-Screenshot.png)
 
 
 
