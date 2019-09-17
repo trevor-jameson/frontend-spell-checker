@@ -38,6 +38,7 @@ class SpellSelectionBox extends Component {
     return spells.filter(spell => {
       for (const key in form) {
         if (form[key]) {
+          debugger
           // string case statement breaking after irregular number of same-page searches
           // console.log(form, spell, form[key], spell[key])
           switch (typeof form[key]) {

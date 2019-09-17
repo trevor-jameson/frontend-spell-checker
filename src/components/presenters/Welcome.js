@@ -15,9 +15,11 @@ const Welcome = () => {
             content='SpellChecker'
             id='app-title'/>
 
-            <Button primary fluid>
-              <Link to="/login">Login</Link>
-            </Button>
+            <Link to="/login">
+              <Button primary fluid>
+                Login
+              </Button>
+            </Link>
 
             <Divider horizontal >Or</Divider>
 

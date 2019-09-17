@@ -5,7 +5,6 @@ import { Grid } from 'semantic-ui-react'
 import './App.css';
 
 // Container components
-
 import SpellSelectionBox from './components/containers/SpellSelectionBox'
 import CharacterSelectionBox from './components/containers/CharacterSelectionBox'
 import Login from './components/containers/Login'
