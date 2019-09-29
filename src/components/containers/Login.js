@@ -38,7 +38,7 @@ export default class Login extends Component {
         window.sessionStorage.setItem('pic', json.user.pic)
 
         // redirect to '/homepage'
-        window.location.href = adapter.FRONTEND_URL + '/spells'
+        window.location.href = adapter.FRONTEND_URL + 'spells'
       } else {
         alert('Invalid Login Credentials')
       }
