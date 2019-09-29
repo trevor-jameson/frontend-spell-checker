@@ -40,7 +40,7 @@ class Adapter {
       },
       body: JSON.stringify(body)
     })
-      .then(res => {
+      .then(res => { 
         if (res.ok) {
           return res.json()
         } else {

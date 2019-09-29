@@ -5,15 +5,14 @@ import './Login.css'
 import { Button, Form, Grid, Header, Message } from 'semantic-ui-react'
 
 export default class Login extends Component {
-  constructor() {
-    super()
 
-    // State of password and username vars should be limited to the login form
-    this.state = {
+  // State of password and username vars should be limited to the login form
+  state = {
     username: '',
-    password: ''
-    }
+    password: '',
+    error: ''
   }
+
 
   setChange = event => {
     this.setState({[event.target.placeholder]: event.target.value})
@@ -27,21 +26,19 @@ export default class Login extends Component {
         password: this.state.password
       }
     })
-    .then(json => {
-      if (json !== undefined) {
-
-        window.sessionStorage.setItem('jwt', json['jwt'])
+    .then(userData => {
+        window.sessionStorage.setItem('jwt', userData['jwt'])
 
         // TODO: Set the user attributes in Redux instead?
-        window.sessionStorage.setItem('username', json.user.username)
-        window.sessionStorage.setItem('firstname', json.user.firstname)
-        window.sessionStorage.setItem('pic', json.user.pic)
+        window.sessionStorage.setItem('username', userData.user.username)
+        window.sessionStorage.setItem('firstname', userData.user.firstname)
+        window.sessionStorage.setItem('pic', userData.user.pic)
 
         // redirect to '/homepage'
         window.location.href = adapter.FRONTEND_URL + 'spells'
-      } else {
-        alert('Invalid Login Credentials')
-      }
+    })
+    .catch(error => {
+      error.json().then(res => this.setState({error: res.message}))
     })
   }
 
@@ -86,6 +83,13 @@ export default class Login extends Component {
                     </Link>
                   </Message>
                 </div>
+                {!this.state.error ? null :
+                  <Message compact
+                    size='mini'
+                    color='black'>
+                      {this.state.error}
+                  </Message>
+                }
           </Grid.Column>
         </Grid>
       </div>

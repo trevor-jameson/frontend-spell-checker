@@ -10,8 +10,8 @@ import { fetchingChars } from '../../redux/actions/charActions'
 import { mapCharsToProps } from '../../redux/mapStateToProps'
 
 class CharacterSelectionBox extends Component {
-
-  componentDidMount() {
+  constructor(props) {
+    super(props)
     this.props.fetchingChars()
   }
 

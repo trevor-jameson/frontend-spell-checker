@@ -16,9 +16,15 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+<<<<<<< HEAD
   height: 100vw;
+=======
+  height: 100%;
+>>>>>>> e0787e211a4826c807117069d8b2b7eedc6ba43a
   top: 0;
   right: 0;
+  left: 0;
+  bottom: 0;
   position: fixed;
 }
 
