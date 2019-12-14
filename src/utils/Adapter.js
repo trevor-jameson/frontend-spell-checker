@@ -96,6 +96,6 @@ class Adapter {
 }
 
 // Set the (backend's, frontend's) current url here
-const adapter = new Adapter('http://localhost:3001', 'http://localhost:3000')
+const adapter = new Adapter('http://localhost:3001/', 'http://localhost:3000/')
 
 export default adapter

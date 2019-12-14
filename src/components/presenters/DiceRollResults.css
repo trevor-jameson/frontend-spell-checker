@@ -5,10 +5,10 @@
 
 #roll-result {
   position: absolute;
-  font-size: 3em;
+  font-size: 6em;
   font-family: 'Stalemate', 'cursive';
-  margin-left: 76px;
-  margin-top: -225px;
+  margin-left: 115px;
+  margin-top: -370px;
   z-index: 1;
 }
 
@@ -19,5 +19,6 @@
 }
 
 .dice-roll-form {
-  margin-top: 3vw;
+  margin-top: 200px;
+  margin-left: 5vw
 }
