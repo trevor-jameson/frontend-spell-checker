@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 #app-title {
   text-align: center;
   text-decoration: underline;

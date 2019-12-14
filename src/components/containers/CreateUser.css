@@ -10,8 +10,8 @@
   color: white;
 }
 
-#signup-form {
-  margin-left: 30%;
+#signup-container {
+  justify-content: center;
 }
 
 #signup-header {
