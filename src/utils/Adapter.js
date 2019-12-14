@@ -19,34 +19,22 @@ class Adapter {
   }
 
   post(endpoint, body) {
+    let headers = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+    // Conditional addition of auth token if not logging in or creating user
+    if ((endpoint !== 'login') || (endpoint !== 'create-user')) {headers.Authorization = window.sessionStorage.getItem('jwt')}
     return fetch(`${this.BACKEND_URL}/${endpoint}`, {
       method: "POST",
-      headers: {
-        'Authorization': window.sessionStorage.getItem('jwt'),
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: headers,
       body: JSON.stringify(body)
     })
-      .then(res => res.json())
+    .then(res => res.json())
   }
 
   loginUser(body) {
-    return fetch(`${this.BACKEND_URL}/login`, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(body)
-    })
-      .then(res => { 
-        if (res.ok) {
-          return res.json()
-        } else {
-          throw res
-        }
-      })
+    return this.post('login', body)
       .then(userData => {
         window.sessionStorage.setItem('jwt', userData['jwt'])
 
@@ -68,21 +56,7 @@ class Adapter {
     }
 
     createUser(body) {
-      return fetch(`${this.BACKEND_URL}/create-user`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(body)
-      })
-        .then(res => {
-          if (res.ok) {
-            return res.json()
-          } else {
-            throw res
-          }
-        })
+      return this.post('create-user', body)
         .then(json => {
           window.sessionStorage.setItem('jwt', json['jwt'])
 
@@ -96,6 +70,6 @@ class Adapter {
 }
 
 // Set the (backend's, frontend's) current url here
-const adapter = new Adapter('http://localhost:3001/', 'http://localhost:3000/')
+const adapter = new Adapter('http://localhost:3001', 'http://localhost:3000')
 
 export default adapter
