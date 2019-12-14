@@ -64,11 +64,11 @@ export default class Login extends Component {
                     onClick={this.submitForm}>
                     Submit</Button>
                   </Form>
-                  <div id="create-user-option">
+                  <div id="signup-option">
                     <Message compact
                     size='mini'
                     color='black'>
-                      <Link to="/create-user">
+                      <Link to="/signup">
                         New to Spell Checker? Create a profile and get playing!
                       </Link>
                     </Message>

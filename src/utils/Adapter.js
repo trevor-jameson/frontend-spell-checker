@@ -24,7 +24,7 @@ class Adapter {
       'Accept': 'application/json'
     }
     // Conditional addition of auth token if not logging in or creating user
-    if ((endpoint !== 'login') || (endpoint !== 'create-user')) {headers.Authorization = window.sessionStorage.getItem('jwt')}
+    if ((endpoint !== 'login') || (endpoint !== 'signup')) {headers.Authorization = window.sessionStorage.getItem('jwt')}
     return fetch(`${this.BACKEND_URL}/${endpoint}`, {
       method: "POST",
       headers: headers,
@@ -56,7 +56,7 @@ class Adapter {
     }
 
     createUser(body) {
-      return this.post('create-user', body)
+      return this.post('signup', body)
         .then(json => {
           window.sessionStorage.setItem('jwt', json['jwt'])
 

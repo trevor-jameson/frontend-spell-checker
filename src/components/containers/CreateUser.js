@@ -50,17 +50,17 @@ export default class CreateUser extends Component {
 
   render() {
     return(
-        <div id="create-user-page">
+        <div id="signup-page">
         <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
           <Grid.Column centered>
             <Header
             as='h1'
             textAlign='center'
-            id='create-user-header'
+            id='signup-header'
             >
               Create your account
             </Header>
-            <Form style={{maxWidth: '450px'}} id='create-user-form'>
+            <Form style={{maxWidth: '450px'}} id='signup-form'>
               <Form.Group widths='equal'>
                 <Form.Field>
                   <label>Username</label>

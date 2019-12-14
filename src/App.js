@@ -26,7 +26,7 @@ class App extends Component {
           <Route exact path="/" component={Welcome}/>
           <Route path="/welcome" component={Welcome}/>
           <Route path="/login" component={Login}/>
-          <Route path="/create-user" component={CreateUser}/>
+          <Route path="/signup" component={CreateUser}/>
           {window.sessionStorage.jwt === undefined ? <GuestUser/> :
             <Grid stretched={true} id='grid'>
               <Grid.Row id="navbar-row">

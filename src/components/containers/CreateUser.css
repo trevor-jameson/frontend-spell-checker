@@ -1,4 +1,4 @@
-#create-user-page {
+#signup-page {
   background: url('../../images/AdobeStock_170204147.jpeg') no-repeat center center fixed;
   /* adjusts size to CSS3 specs for each major browser */
   -webkit-background-size: cover;
@@ -10,11 +10,11 @@
   color: white;
 }
 
-#create-user-form {
+#signup-form {
   margin-left: 30%;
 }
 
-#create-user-header {
+#signup-header {
   font-family: fantasy;
   color: white;
   margin-bottom: 50px;
@@ -22,7 +22,7 @@
   margin-top: -40vw
 }
 
-#create-user-page label{
+#signup-page label{
   color: white;
   font-size: 1.5em;
   margin-bottom: 20px;

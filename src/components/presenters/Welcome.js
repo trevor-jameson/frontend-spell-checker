@@ -23,7 +23,7 @@ const Welcome = () => {
 
             <Divider horizontal >Or</Divider>
 
-            <Link to="/create-user">
+            <Link to="/signup">
               <Button primary fluid>
                 Create New Account
               </Button>
