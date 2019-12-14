@@ -1,12 +1,12 @@
 #app-title {
+  text-align: center;
   text-decoration: underline;
   text-underline-position: under;
   text-decoration-color: red;
   text-decoration-style: wavy;
   font-family: 'Stalemate', 'cursive';
   font-size: 4em;
-  padding-bottom: 20px;
-  margin-left: 15%
+  padding-bottom: 2rem;
 }
 
 #welcome-screen {
@@ -16,11 +16,7 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-<<<<<<< HEAD
-  height: 100vw;
-=======
   height: 100%;
->>>>>>> e0787e211a4826c807117069d8b2b7eedc6ba43a
   top: 0;
   right: 0;
   left: 0;

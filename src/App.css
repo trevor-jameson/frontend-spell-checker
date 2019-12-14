@@ -1,3 +1,8 @@
+body {
+    /* Prevents "overscroll" revealing blank edges of the page on iOS and MacOS */
+    overscroll-behavior-y: none;
+}
+
 #grid {
   height: 100vw;
   width: 100vw;
