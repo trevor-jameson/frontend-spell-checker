@@ -15,7 +15,8 @@ export default class CreateUser extends Component {
     lastname: '',
     password: '',
     password_conf: '',
-    pic: ''
+    pic: '',
+    error: ''
     }
   }
 
@@ -39,20 +40,10 @@ export default class CreateUser extends Component {
         pic: this.state.pic
       }
     })
-    .then(json => {
-      if (json !== undefined) {
-
-        window.sessionStorage.setItem('jwt', json['jwt'])
-
-        // TODO: Set the user attributes in Redux instead
-        window.sessionStorage.setItem('user', JSON.stringify(json['user']))
-
-        // redirect to '/spells'
-        window.location.href = adapter.FRONTEND_URL + '/spells'
-      } else {
-        // TODO: How to handle error messages from backend?
-        alert('Invalid User Credentials')
-      }
+    .catch(error => {
+      error.json().then(res => {
+        this.setState({error: res.message})
+      })
     })
     // End of SubmitForm
   }

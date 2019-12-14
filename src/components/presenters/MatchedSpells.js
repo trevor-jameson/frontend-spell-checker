@@ -3,6 +3,7 @@
 import React, { Fragment }from 'react'
 import { Card } from 'semantic-ui-react'
 import SpellCard from './SpellCard'
+import './MatchedSpells.css'
 
 // Import Semantic-UI
 const MatchedSpells = props => {

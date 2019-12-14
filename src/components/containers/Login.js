@@ -26,20 +26,11 @@ export default class Login extends Component {
         password: this.state.password
       }
     })
-    .then(userData => {
-        window.sessionStorage.setItem('jwt', userData['jwt'])
-
-        // TODO: Set the user attributes in Redux instead?
-        window.sessionStorage.setItem('username', userData.user.username)
-        window.sessionStorage.setItem('firstname', userData.user.firstname)
-        window.sessionStorage.setItem('pic', userData.user.pic)
-
-        // redirect to '/homepage'
-        window.location.href = adapter.FRONTEND_URL + '/spells'
-    })
-    .catch(error => {
-      error.json().then(res => this.setState({error: res.message}))
-    })
+    // .catch(error => {
+    //   error.json().then(res => {
+    //     this.setState({ error: res.message })
+    //   })
+    // })
   }
 
   render() {

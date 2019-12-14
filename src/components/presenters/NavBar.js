@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/SpellCheckerLogo.png'
 import adapter from '../../utils/Adapter'
 import './NavBar.css'
+import Logout from './Logout'
 
 class NavBar extends Component {
 
@@ -34,71 +35,43 @@ class NavBar extends Component {
           name="spells"
           active={activePage === 'spells'}
           onClick={this.setPage}
+          as={Link}
+          to='/spells'
         >
-          <Link to='/spells'>
           <Icon name='bolt' /> Spells
-          </Link>
         </Menu.Item>
 
         <Menu.Item
           name="characters"
           active={activePage === 'characters'}
           onClick={this.setPage}
+          as={Link}
+          to='/characters'
         >
-          <Link to='/characters'>
           <Icon name='universal access'/> Characters
-          </Link>
         </Menu.Item>
 
         <Menu.Item
           name="dice"
           active={activePage === 'dice'}
           onClick={this.setPage}
+          as={Link}
+          to='/dice'
         >
-          <Link to='/dice'>
           <Icon name='modx' /> Dice Roller
-          </Link>
         </Menu.Item>
 
         <Menu.Item
           name="sessions"
           active={activePage === 'sessions'}
           onClick={this.setPage}
+          as={Link}
+          to='/sessions'
         >
-          <Link to='/sessions'>
           <Icon name='trophy' /> Sessions
-          </Link>
         </Menu.Item>
 
-        <Modal trigger={
-          <Menu.Item>
-            <Icon name="log out"/> Logout
-          </Menu.Item>
-          }
-          basic
-          size='small'
-          >
-          <Header icon='cog' content="Logout of Spell Check?" />
-          <Modal.Content>
-            <p>
-              Are you sure you want to log out of SpellCheck? Is something wrong with you?!
-            </p>
-          </Modal.Content>
-          <Modal.Actions>
-            <Button basic inverted
-            color='red'>
-              <Icon name='remove' /> No
-            </Button>
-
-            <Button
-              color='green'
-              inverted
-              onClick={adapter.logoutUser}
-            >
-              <Icon name='checkmark' /> Yes
-            </Button>
-          </Modal.Actions>
-        </Modal>
+        <Logout />
 
         <Menu.Item>
           <Image

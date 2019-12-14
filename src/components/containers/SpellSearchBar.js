@@ -24,7 +24,8 @@ class SpellSearchBar extends Component{
     let val = event.target.innerText
 
     // innerText is always a string, but search function expects ints for lvls
-    if (val.match(/\d+/)) {
+    // NOTE: Addition of 'gim' flags untested
+    if (val.match(/\d+/gim)) {
       val = Number(val)
     }
     this.setState({[dropdown.id]: val})
@@ -45,16 +46,16 @@ class SpellSearchBar extends Component{
         onSubmit={this.submitSearch}
       >
       <Form.Input
-      name='name'
-      type="text"
-      placeholder="Search"
-      onChange={this.onChange}
-      action={
-        <Button
-        icon='search'
-        type="submit"
-        />
-      }
+        name='name'
+        type="text"
+        placeholder="Search"
+        onChange={this.onChange}
+        action={
+          <Button
+          icon='search'
+          type="submit"
+          />
+        }
       />
       <Form.Group widths='equal'>
       <Form.Dropdown fluid search selection clearable

@@ -47,6 +47,17 @@ class Adapter {
           throw res
         }
       })
+      .then(userData => {
+        window.sessionStorage.setItem('jwt', userData['jwt'])
+
+        // TODO: Set the user attributes in Redux instead?
+        window.sessionStorage.setItem('username', userData.user.username)
+        window.sessionStorage.setItem('firstname', userData.user.firstname)
+        window.sessionStorage.setItem('pic', userData.user.pic)
+
+        // redirect to '/homepage'
+        window.location.href = adapter.FRONTEND_URL + '/spells'
+      })
     }
 
     logoutUser() {
@@ -71,6 +82,15 @@ class Adapter {
           } else {
             throw res
           }
+        })
+        .then(json => {
+          window.sessionStorage.setItem('jwt', json['jwt'])
+
+          // TODO: Set the user attributes in Redux instead
+          window.sessionStorage.setItem('user', JSON.stringify(json['user']))
+
+          // redirect to '/spells'
+          window.location.href = adapter.FRONTEND_URL + '/spells'
         })
       }
 }
