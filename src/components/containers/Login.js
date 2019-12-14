@@ -37,7 +37,8 @@ export default class Login extends Component {
       <div id="login-page">
         <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Segment padded inverted >
+            <Grid.Row>
+              <Segment inverted>
               <Header
               as='h2'
               id='page-header'
@@ -79,7 +80,8 @@ export default class Login extends Component {
                         {this.state.error}
                     </Message>
                   }
-              </Segment>
+                  </Segment>
+              </Grid.Row>
           </Grid.Column>
         </Grid>
       </div>

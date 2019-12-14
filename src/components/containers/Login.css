@@ -1,7 +1,10 @@
 
-
+body {
+  overflow: auto
+}
 #login-page {
   background: url('../../images/AdobeStock_286891230.jpeg') no-repeat center center fixed;
+  overflow: hidden;
   /* adjusts size to CSS3 specs for each major browser */
   -webkit-background-size: cover;
   -moz-background-size: cover;
