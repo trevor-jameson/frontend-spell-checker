@@ -1,6 +1,3 @@
-body {
-  overflow: hidden;
-}
 
 #app-title {
   text-align: center;
@@ -9,9 +6,15 @@ body {
   text-decoration-color: red;
   text-decoration-style: wavy;
   font-family: 'Stalemate', 'cursive';
-  font-size: 4em;
+  font-size: 5em;
   padding-bottom: 2rem;
 }
+
+.typewriter {
+  
+}
+
+
 
 #welcome-screen {
   background: url('../../images/tree_of_life_by_jjcanvas_dc6zv1z-pre.jpg') no-repeat center center fixed;
@@ -41,4 +44,15 @@ body {
 
 #welcome-selector-box .divider {
   color: white;
+}
+
+#typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }

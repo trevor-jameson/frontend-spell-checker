@@ -11,9 +11,9 @@ const Welcome = () => {
         <div id="welcome-selector-box">
           <Segment padded inverted centered>
             <Header
-            as='h6'
             content='SpellChecker'
-            id='app-title'/>
+            id='app-title'
+            />
 
             <Link to="/login">
               <Button primary fluid>

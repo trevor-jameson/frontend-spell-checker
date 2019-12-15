@@ -48,7 +48,7 @@ class SpellSearchBar extends Component{
       <Form.Input
         name='name'
         type="text"
-        placeholder="Search"
+        placeholder="Search Name"
         onChange={this.onChange}
         action={
           <Button

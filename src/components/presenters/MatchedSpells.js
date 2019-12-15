@@ -13,10 +13,12 @@ const MatchedSpells = props => {
         itemsPerRow={3}
         id='matched-spells'
       >
-        {props.spells.map(spell => <SpellCard
-          key={spell.id}
-          spell={spell}
-        />)}
+        {!props.spells ? null :
+          props.spells.map(spell => <SpellCard
+            key={spell.id}
+            spell={spell}
+          />)
+      }
       </Card.Group>
     </Fragment>
   )

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import adapter from '../../utils/Adapter'
 import { Link } from 'react-router-dom'
 import './Login.css'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message } from 'semantic-ui-react'
 
 export default class Login extends Component {
 
@@ -37,8 +37,7 @@ export default class Login extends Component {
       <div id="login-page">
         <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Grid.Row>
-              <Segment inverted>
+            <Grid.Row color="black">
               <Header
               as='h2'
               id='page-header'
@@ -47,13 +46,11 @@ export default class Login extends Component {
                 </Header>
                   <Form size='large'>
                     <Form.Field>
-                      <label>Username </label>
                       <input
                       placeholder='username'
                       onChange={this.setChange}/>
                     </Form.Field>
                     <Form.Field>
-                      <label>Password </label>
                       <input
                       placeholder='password'
                       type='password'
@@ -64,15 +61,10 @@ export default class Login extends Component {
                     onClick={this.submitForm}>
                     Submit</Button>
                   </Form>
-                  <div id="signup-option">
-                    <Message compact
-                    size='mini'
-                    color='black'>
+
                       <Link to="/signup">
-                        New to Spell Checker? Create a profile and get playing!
+                        New to Spell Checker?
                       </Link>
-                    </Message>
-                  </div>
                   {!this.state.error ? null :
                     <Message compact
                       size='mini'
@@ -80,7 +72,6 @@ export default class Login extends Component {
                         {this.state.error}
                     </Message>
                   }
-                  </Segment>
               </Grid.Row>
           </Grid.Column>
         </Grid>
