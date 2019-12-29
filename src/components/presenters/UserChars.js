@@ -25,20 +25,21 @@ class UserChars extends Component {
 
   render() {
     const { activeItem } = this.state
-
+    debugger
     return (
       <Fragment>
         <Grid.Row
          columns={2}>
           <Grid.Column>
             <Menu vertical tabular compact>
-              {this.props.chars.map((char, ind) => {
-                return <CharMenuItem
-                  char={char}
-                  activeItem={activeItem}
-                  itemClick={this.handleItemClick}
-                  key={ind}
-                />
+              {!this.props.chars.map ? null :
+                this.props.chars.map((char, ind) => {
+                  return <CharMenuItem
+                    char={char}
+                    activeItem={activeItem}
+                    itemClick={this.handleItemClick}
+                    key={ind}
+                  />
               })}
               <Menu.Item>
                 <CreateChar />
