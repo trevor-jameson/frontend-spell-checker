@@ -1,40 +1,57 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Header, Segment, Button, Divider, Grid } from 'semantic-ui-react'
+import { Header, Segment, Grid } from 'semantic-ui-react'
+
+
+import WelcomeOptions from './WelcomeOptions.js'
+import Login from '../containers/Login.js'
+import Signup from '../containers/Signup.js'
+
 import './Welcome.css'
 
-const Welcome = () => {
-  return (
-    <Grid>
-    <div id="welcome-screen">
-      <Grid.Column>
-        <div id="welcome-selector-box">
-          <Segment padded inverted centered>
-            <Header
-            content='SpellChecker'
-            id='app-title'
-            />
+class Welcome extends React.Component {
 
-            <Link to="/login">
-              <Button primary fluid>
-                Login
-              </Button>
-            </Link>
+  state = {
+    activeModal: 'welcome'
+  }
 
-            <Divider horizontal >Or</Divider>
+  changeActiveModal = (event) => {
+    this.setState({
+      activeModal: event.currentTarget.name
+    })
+  }
 
-            <Link to="/signup">
-              <Button primary fluid>
-                Create New Account
-              </Button>
-            </Link>
+  whichToRender = () => {
 
-            </Segment>
-            </div>
-          </Grid.Column>
-    </div>
-    </Grid>
-  )
-}
+    const activeModal = this.state.activeModal
+
+    if (activeModal === 'welcome') {
+      return <WelcomeOptions changeActiveModal={this.changeActiveModal} />
+    } else if (activeModal === 'login') {
+      return <Login />
+    } else if (activeModal === 'signup') {
+      return <Signup />
+    }
+  }
+
+  render(){
+    return (
+      <Grid>
+      <div id="welcome-screen">
+        <Grid.Column>
+          <div id="welcome-selector-box">
+            <Segment padded inverted centered>
+              <Header
+              content='SpellChecker'
+              id='app-title'
+              />
+              {this.whichToRender()}
+              </Segment>
+              </div>
+            </Grid.Column>
+      </div>
+      </Grid>
+    )
+  }
+  }
 
 export default Welcome

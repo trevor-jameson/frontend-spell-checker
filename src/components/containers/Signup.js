@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import adapter from '../../utils/Adapter'
 import { Button, Form, Grid, Header, Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import './CreateUser.css'
+import './Signup.css'
 
-export default class CreateUser extends Component {
+export default class Signup extends Component {
   constructor() {
     super()
 
@@ -31,7 +31,7 @@ export default class CreateUser extends Component {
        alert('Your passwords must match')
        return
     }
-    adapter.createUser({
+    adapter.signup({
       user: {
         username: this.state.username,
         firstname: this.state.firstname,

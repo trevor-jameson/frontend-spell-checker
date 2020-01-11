@@ -55,7 +55,7 @@ class Adapter {
       window.location.href = '/welcome'
     }
 
-    createUser(body) {
+    signup(body) {
       return this.post('signup', body)
         .then(json => {
           window.sessionStorage.setItem('jwt', json['jwt'])

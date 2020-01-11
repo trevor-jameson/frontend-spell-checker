@@ -7,8 +7,7 @@ import './App.css';
 // Container components
 import SpellSelectionBox from './components/containers/SpellSelectionBox'
 import CharacterSelectionBox from './components/containers/CharacterSelectionBox'
-import Login from './components/containers/Login'
-import CreateUser from './components/containers/CreateUser'
+
 
 // Presenter components
 import NoMatch from './components/presenters/NoMatch'
@@ -25,8 +24,6 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Welcome}/>
           <Route path="/welcome" component={Welcome}/>
-          <Route path="/login" component={Login}/>
-          <Route path="/signup" component={CreateUser}/>
           {window.sessionStorage.jwt === undefined ? <GuestUser/> :
             <Grid stretched={true} id='grid'>
               <Grid.Row id="navbar-row">
