@@ -16,6 +16,9 @@ import Welcome from './components/presenters/Welcome'
 import DiceRollerBox from './components/containers/DiceRollerBox'
 import NavBar from './components/presenters/NavBar'
 
+// Login flow breakdown
+// If user has a jwt, test validity, redirect to 
+
 
 
 class App extends Component {

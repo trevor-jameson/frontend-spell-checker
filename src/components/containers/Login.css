@@ -8,7 +8,7 @@
   -o-background-size: cover;
   background-size: cover;
   height: 100vw;
-  font-family: fantasy;
+  /* font-family: fantasy; */
 }
 
 #login-page label{
@@ -19,9 +19,9 @@
 #page-header {
     color: white;
     font-size: 3em;
-    font-family: fantasy;
+    /* font-family: fantasy; */
     margin-bottom: 50px;
-    margin-top: -40vw;
+    margin-top: -45vw;
 }
 
 #signup-option {
