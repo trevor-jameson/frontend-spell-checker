@@ -16,7 +16,7 @@ import adapter from '../../utils/Adapter'
     <Header icon='cog' content="Logout of Spell Check?" />
     <Modal.Content>
         <p>
-            Are you sure you want to log out of SpellCheck? Is something wrong with you?!
+            Are you sure you want to log out of SpellChecker? Is something wrong with you?!
             </p>
     </Modal.Content>
     <Modal.Actions>

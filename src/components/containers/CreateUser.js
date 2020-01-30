@@ -121,10 +121,10 @@ export default class CreateUser extends Component {
             <div id="login-user-option">
             <br/>
               <Message compact
-              size='mini'
+              size='large'
               color='black'
               >
-                <Link to="/login">Already have a profile? Head back to the login page!</Link>
+                <Link to="/login">Already have an account? Login!</Link>
               </Message>
             </div>
             </Grid.Column>

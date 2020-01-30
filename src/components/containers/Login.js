@@ -20,67 +20,59 @@ export default class Login extends Component {
 
   submitForm = (event) => {
     event.preventDefault()
-    adapter.loginUser({
-      user: {
-        username: this.state.username,
-        password: this.state.password
-      }
-    })
-    .catch(error => {
-      this.setState({error: error})
-    })
+    adapter
+      .loginUser({
+        user: {
+          username: this.state.username,
+          password: this.state.password
+        }
+      })
+      .catch(error => this.setState({ error: `⚠️ Error:  ${error.message}` }));
   }
 
   render() {
     // TODO: If user has authenticated JWT, redirect to spells page
-    return(
+    return (
       <div id="login-page">
-        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+        <Grid
+          textAlign="center"
+          style={{ height: "100%" }}
+          verticalAlign="middle"
+        >
           <Grid.Column style={{ maxWidth: 450 }}>
             <Grid.Row color="black">
-              <Header
-              as='h2'
-              id='page-header'
-              textAlign='center'>
+              <Header as="h2" id="page-header" textAlign="center">
                 Login to your account
-                </Header>
-                  <Form size='large'>
-                    <Form.Field>
-                      <input
-                      placeholder='username'
-                      onChange={this.setChange}/>
-                    </Form.Field>
-                    <Form.Field>
-                      <input
-                      placeholder='password'
-                      type='password'
-                      onChange={this.setChange}/>
-                    </Form.Field>
-                    <Button
-                    type='submit'
-                    onClick={this.submitForm}>
-                    Submit</Button>
-                  </Form>
-                    <Message
-                      compact
-                      size='mini'
-                      color='black'
-                    >
-                      <Link to="/signup">
-                        New to Spell Checker?
-                      </Link>
-                    </Message>
-                  {!this.state.error ? null :
-                    <Message compact
-                      size='mini'
-                      color='black'>
-                        {this.state.error.message}
-                    </Message>
-                  }
-              </Grid.Row>
+              </Header>
+              <Form size="large">
+                <Form.Field>
+                  <input placeholder="username" onChange={this.setChange} />
+                </Form.Field>
+                <Form.Field>
+                  <input
+                    placeholder="password"
+                    type="password"
+                    onChange={this.setChange}
+                  />
+                </Form.Field>
+                <Button type="submit" onClick={this.submitForm}>
+                  Submit
+                </Button>
+              </Form>
+              <Message compact size="large" color="black">
+                <Link to="/signup">New to Spell Checker? Signup!</Link>
+                <br />
+                For demo access, use username & password "test"
+              </Message>
+              {!this.state.error ? null : (
+                <Message compact size="large" color="black">
+                  {this.state.error}
+                </Message>
+              )}
+            </Grid.Row>
           </Grid.Column>
         </Grid>
       </div>
-    )
+    );
   }
 }

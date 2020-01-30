@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-import { Menu, Image, Icon, Header, Button, Modal } from 'semantic-ui-react'
+import { Menu, Image, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/SpellCheckerLogo.png'
-import adapter from '../../utils/Adapter'
 import './NavBar.css'
 import Logout from './Logout'
 
 class NavBar extends Component {
 
-  state = { activePage: null}
+  state = { activePage: window.location.href.split('/').pop()}
 
   setPage = (e, { name }) => this.setState({ activePage: name })
 
@@ -71,7 +70,10 @@ class NavBar extends Component {
           <Icon name='trophy' /> Sessions
         </Menu.Item>
 
+        <Menu.Item>
+
         <Logout />
+        </Menu.Item>
 
         <Menu.Item>
           <Image

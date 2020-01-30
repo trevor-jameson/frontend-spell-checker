@@ -19,15 +19,11 @@
   color: white;
   margin-bottom: 50px;
   font-size: 3em;
-  margin-top: -40vw
+  margin-top: -40vw;
 }
 
 #signup-page label{
   color: white;
   font-size: 1.5em;
   margin-bottom: 20px;
-}
-
-#login-user-option {
-  opacity: 0.85;
 }

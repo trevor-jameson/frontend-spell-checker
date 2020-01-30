@@ -25,7 +25,6 @@ class UserChars extends Component {
 
   render() {
     const { activeItem } = this.state
-    debugger
     return (
       <Fragment>
         <Grid.Row
