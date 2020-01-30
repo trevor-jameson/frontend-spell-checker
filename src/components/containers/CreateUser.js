@@ -49,87 +49,94 @@ export default class CreateUser extends Component {
   }
 
   render() {
-    return(
-        <div id="signup-page">
-        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle" centered columns={2}>
-          <Grid.Column centered id="signup-container">
-            <Header
-            as='h1'
-            textAlign='center'
-            id='signup-header'
-            >
+    return (
+      <div id="signup-page">
+        <Grid
+          textAlign="center"
+          style={{ height: "100%" }}
+          verticalAlign="middle"
+          centered
+          columns={2}
+        >
+          <Grid.Column id="signup-container">
+            <Header as="h1" textAlign="center" id="signup-header">
               Create your account
             </Header>
             <Form>
-              <Form.Group widths='equal'>
+              <Form.Group widths="equal">
                 <Form.Field>
                   <label>Username</label>
-                  <input
-                  name='username'
-                  onChange={this.setChange}/>
+                  <input 
+                    name="username" 
+                    autoComplete="username"
+                    onChange={this.setChange} />
                 </Form.Field>
 
                 <Form.Field>
                   <label>Profile Picture</label>
                   <input
-                  name='pic'
-                  placeholder="link"
-                  onChange={this.setChange}/>
+                    name="pic"
+                    placeholder="link"
+                    onChange={this.setChange}
+                  />
                 </Form.Field>
               </Form.Group>
 
-              <Form.Group widths='equal'>
+              <Form.Group widths="equal">
                 <Form.Field>
                   <label>First Name</label>
-                  <input
-                  name='firstname'
-                  onChange={this.setChange}/>
+                  <input 
+                    name="firstname" 
+                    autoComplete="firstname"
+                    onChange={this.setChange} />
                 </Form.Field>
 
                 <Form.Field>
                   <label>Last Name</label>
                   <input
-                  name='lastname'
-                  onChange={this.setChange}/>
+                    name="lastname"
+                    autoComplete="lastname"
+                    onChange={this.setChange}
+                  />
                 </Form.Field>
               </Form.Group>
 
-              <Form.Group widths='equal'>
+              <Form.Group widths="equal">
                 <Form.Field>
                   <label>Password</label>
                   <input
-                  name='password'
-                  type='password'
-                  onChange={this.setChange}/>
+                    name="password"
+                    type="password"
+                    autoComplete="new-password"
+                    onChange={this.setChange}
+                  />
                 </Form.Field>
 
                 <Form.Field>
                   <label>Password Confirmation</label>
                   <input
-                  name='password_conf'
-                  type='password'
-                  onChange={this.setChange}/>
+                    name="password_conf"
+                    type="password"
+                    autoComplete="new-password"
+                    onChange={this.setChange}
+                  />
                 </Form.Field>
               </Form.Group>
 
-              <Button
-              type='submit'
-              onClick={this.submitForm}>
-              Submit</Button>
+              <Button type="submit" onClick={this.submitForm}>
+                Submit
+              </Button>
             </Form>
 
             <div id="login-user-option">
-            <br/>
-              <Message compact
-              size='large'
-              color='black'
-              >
+              <br />
+              <Message compact size="large" color="black">
                 <Link to="/login">Already have an account? Login!</Link>
               </Message>
             </div>
-            </Grid.Column>
-          </Grid>
-        </div>
-    )
+          </Grid.Column>
+        </Grid>
+      </div>
+    );
   }
 }

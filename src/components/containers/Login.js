@@ -46,12 +46,16 @@ export default class Login extends Component {
               </Header>
               <Form size="large">
                 <Form.Field>
-                  <input placeholder="username" onChange={this.setChange} />
+                  <input 
+                    placeholder="username" 
+                    autoComplete="username"
+                    onChange={this.setChange} />
                 </Form.Field>
                 <Form.Field>
                   <input
                     placeholder="password"
                     type="password"
+                    autoComplete="current-password"
                     onChange={this.setChange}
                   />
                 </Form.Field>
