@@ -27,7 +27,7 @@ export default class Login extends Component {
       }
     })
     .catch(error => {
-      error.then(res => this.setState({error: res.message}))
+      this.setState({error: error})
     })
   }
 
@@ -61,15 +61,20 @@ export default class Login extends Component {
                     onClick={this.submitForm}>
                     Submit</Button>
                   </Form>
-
+                    <Message
+                      compact
+                      size='mini'
+                      color='black'
+                    >
                       <Link to="/signup">
                         New to Spell Checker?
                       </Link>
+                    </Message>
                   {!this.state.error ? null :
                     <Message compact
                       size='mini'
                       color='black'>
-                        {this.state.error}
+                        {this.state.error.message}
                     </Message>
                   }
               </Grid.Row>
