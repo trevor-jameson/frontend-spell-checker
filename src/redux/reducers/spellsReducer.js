@@ -1,4 +1,4 @@
-import { LOADING_SPELLS, FETCHED_SPELLS, SELECT_SPELLS } from '../actionTypes'
+import { LOADING_SPELLS, FETCHED_SPELLS } from '../actionTypes'
 
 export const spellsReducer = (prevState = [], action) => {
   switch (action.type) {

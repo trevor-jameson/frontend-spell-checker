@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Grid, Message } from 'semantic-ui-react'
 import './GuestUser.css'
 

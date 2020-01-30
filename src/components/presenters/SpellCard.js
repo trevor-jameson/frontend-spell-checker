@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Header } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import Truncate from 'react-truncate'
 
 // TODO: Fix method for replacing components shorthand with full words
@@ -23,7 +23,7 @@ const SpellCard = props => {
     <Card raised>
       <Card.Header
       as='h3'
-      content={props.spell.name}
+      content={name}
       />
       <Card.Content
         textAlign='left'

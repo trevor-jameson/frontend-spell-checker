@@ -13,6 +13,7 @@ export const store = createStore(
   )
 );
 
-store.subscribe(() => {
-  console.log('store changed', store.getState())
-})
+// Enable to log all updates to the redux store
+// store.subscribe(() => {
+//   console.log('store changed', store.getState())
+// })

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Card } from 'semantic-ui-react'
 
 const CharCard = props => {
-  const { name, notes, health, abilities_set, char_klasses, klass_levels, spells, klasses } = props.char
+  const { name, notes, health, char_klasses, klasses } = props.char
 
   return (
     <Fragment>

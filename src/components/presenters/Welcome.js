@@ -9,7 +9,7 @@ const Welcome = () => {
     <div id="welcome-screen">
       <Grid.Column>
         <div id="welcome-selector-box">
-          <Segment padded inverted centered>
+          <Segment padded inverted>
             <Header
             content='SpellChecker'
             id='app-title'
