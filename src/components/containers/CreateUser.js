@@ -73,7 +73,7 @@ export default class CreateUser extends Component {
                 </Form.Field>
 
                 <Form.Field>
-                  <label>Profile Picture</label>
+                  <label>Profile Picture URL</label>
                   <input
                     name="pic"
                     placeholder="link"

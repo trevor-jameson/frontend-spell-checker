@@ -25,7 +25,6 @@ class DiceRollerBox extends Component {
     } else {
       result = dice.roll(times, sides)
     }
-    debugger
 
 
     // TODO: Set the result list

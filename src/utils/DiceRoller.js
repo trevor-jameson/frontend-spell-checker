@@ -21,7 +21,6 @@ const roll = (times, sides) => {
 
 const rollAdvantage = (times, sides) => {
   // Pick the highest of the two rolls
-  debugger
   return Math.max(roll(times, sides), roll(times, sides))
 }
 
