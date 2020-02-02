@@ -9,7 +9,6 @@
     "activestorage": "^5.2.3",
     "braces": ">=2.3.1",
     "file-loader": "^2.0.0",
-    "fsevents": "^1.2.9",
     "lodash.template": ">=4.5.0",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
@@ -38,5 +37,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "optionalDependencies": {
+    "fsevents": "^2.1.2"
+  }
 }
