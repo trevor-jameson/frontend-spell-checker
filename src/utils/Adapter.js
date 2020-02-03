@@ -2,8 +2,8 @@
 class Adapter {
     constructor() {
       // Sets url env vars to Adapter scope
-        this.BACKEND_URL = process.env.REACT_APP_BACKEND_URL
-        this.FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL
+        this.BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:3001"
+        this.FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000"
     }
 
   // Generic get fetch for use with any endpoint
@@ -13,7 +13,9 @@ class Adapter {
       headers: {
         'Authorization': window.sessionStorage.getItem('jwt'),
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': this.FRONTEND_URL,
+        'Access-Control-Allow-Credentials': 'true'
       }
     })
       .then(res => res.json())
@@ -22,7 +24,9 @@ class Adapter {
   post(endpoint, body) {
     let headers = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': this.FRONTEND_URL,
+      'Access-Control-Allow-Credentials': 'true'
     }
     // Conditional addition of auth token if not logging in or creating user
     if ((endpoint !== 'login') && (endpoint !== 'signup')) {headers.Authorization = window.sessionStorage.getItem('jwt')}
