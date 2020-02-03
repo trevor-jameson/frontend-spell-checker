@@ -1,9 +1,10 @@
 // Login user, create user, and logout user do not require JWTs.
 class Adapter {
-  constructor(backDomain, frontDomain) {
-    this.BACKEND_URL = backDomain
-    this.FRONTEND_URL = frontDomain
-  }
+    constructor() {
+      // Sets url env vars to Adapter scope
+        this.BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+        this.FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL
+    }
 
   // Generic get fetch for use with any endpoint
   getAll(endpoint) {
@@ -74,6 +75,6 @@ class Adapter {
 }
 
 // Set the (backend's, frontend's) current url here
-const adapter = new Adapter('http://localhost:3001', 'http://localhost:3000')
+const adapter = new Adapter()
 
 export default adapter
