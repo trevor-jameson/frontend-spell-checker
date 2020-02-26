@@ -11,6 +11,7 @@ import book from '../../images/mystic_book_by_adalbertofsouza_d2xvmui-pre.jpg'
 
 import SpellSearchBar from './SpellSearchBar'
 import MatchedSpells from '../presenters/MatchedSpells'
+import { filterSpellsByQuery } from '../../utils/Queries'
 
 class SpellSelectionBox extends Component {
   constructor(props) {
@@ -21,49 +22,12 @@ class SpellSelectionBox extends Component {
     props.fetchingSpells()
   }
 
-  
-  // componentDidMount() {
-  //   this.props.fetchingSpells()
-  // }
 
-  onSubmitSearch = (form) => {
+  onSubmitSearch = (searchQuery) => {
     const spells = this.props.spells
-    const matchedSpells = this.applyFilters(spells, form)
+    const matchedSpells = filterSpellsByQuery(spells, searchQuery)
 
     this.setState({matchedSpells: matchedSpells})
-  }
-
-  applyFilters = (spells, form) => {
-
-    return spells.filter(spell => {
-      for (const key in form) {
-        if (form[key]) {
-          // string case statement breaking after irregular number of same-page searches
-          // console.log(form, spell, form[key], spell[key])
-          switch (typeof form[key]) {
-            case 'string':
-            if (!(spell[key].toLowerCase().includes(form[key].toLowerCase()))) {
-              return false
-            }
-            break;
-            case 'number':
-            if (spell[key] !== form[key]) {
-              return false
-            }
-            break;
-            case 'boolean':
-            if (spell[key] !== form[key]) {
-              return false
-            }
-            break;
-            default:
-              console.log('bad key type in form')
-            break;
-          }
-        }
-      }
-      return true
-    })
   }
 
   render() {
