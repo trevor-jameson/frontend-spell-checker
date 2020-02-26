@@ -60,16 +60,6 @@ class NavBar extends Component {
           <Icon name='modx' /> Dice Roller
         </Menu.Item>
 
-        <Menu.Item
-          name="sessions"
-          active={activePage === 'sessions'}
-          onClick={this.setPage}
-          as={Link}
-          to='/sessions'
-        >
-          <Icon name='trophy' /> Sessions
-        </Menu.Item>
-
         <Menu.Item>
 
         <Logout />
